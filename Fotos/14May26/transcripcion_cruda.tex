@@ -1,0 +1,256 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\newcommand{\dudoso}[1]{\textsf{#1}}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 14May26}
+\end{center}
+
+\section*{Foto 1}
+
+\textit{Teorema.} Toda vecindad es un conjunto abierto.
+
+\textit{Dem.}
+Sea $p\in X$, $r>0$.
+Definimos
+\[
+N_r(p)=\{q\in X\mid d(q,p)<r\}.
+\]
+Para todo $q\in N_r(p)$ existe $h>0$ tal que
+\[
+N_h(q)\subset N_r(p),
+\]
+donde se toma $h=r-d(q,p)>0$.
+
+\section*{Foto 2}
+
+\textit{Definici\'on.}
+Sea $E\subset X$.
+Se define $E'$ como el conjunto de todos los puntos l\'imite de $E$.
+
+\textit{Teorema.}
+Si $p\in E'$ entonces $N_r(p)\cap E$ es un conjunto infinito, para todo $r>0$.
+
+\textit{Dem.}
+Sup\'ongase que la afirmaci\'on es falsa. Entonces existe $r>0$ tal que $N_r(p)\cap E$ es finito.
+
+\section*{Foto 3}
+
+Si $p\in E'$ entonces, para cualquier $r>0$, $N_r(p)\cap E\neq\varnothing$.
+
+\textit{Corolario.}
+Si $E\subset X$ es un conjunto finito, entonces $E'=\varnothing$.
+
+\section*{Foto 4}
+
+\textit{Recuerdemos que un conjunto es cerrado si} $E'\subset E$.
+
+Como $E'=\varnothing$ cuando $E$ es finito y $\varnothing\subset E$, entonces $E$ es cerrado.
+
+\textit{Ejemplos.}
+Considerar los siguientes conjuntos:
+\[
+A=\{(x,y)\in\mathbb R^2\mid x^2+y^2<1\}=N_1((0,0)),
+\]
+\[
+B=\{(x,y)\in\mathbb R^2\mid x^2+y^2\le 1\},
+\]
+\[
+C=\{a_1,a_2,\dots,a_n\}\subset\mathbb R^2,
+\qquad
+D=\mathbb Z.
+\]
+
+\section*{Foto 5}
+
+\[
+A=\{(x,y)\in\mathbb R^2\mid x^2+y^2<1\}=N_1((0,0)).
+\]
+El 0 y el 1 son puntos l\'imite de $E$.
+
+\section*{Foto 6}
+
+\textit{Tabla de ejemplos.}
+
+\[
+\begin{array}{c|cccc}
+ & \text{cerrado} & \text{abierto} & \text{perfecto} & \text{acotado}\\
+\hline
+A & \text{NO} & \text{SI} & \text{NO} & \text{SI}\\
+B & \text{SI} & \text{NO} & \text{SI} & \text{SI}\\
+C & \text{SI} & \text{NO} & \text{NO} & \text{SI}\\
+D & \text{SI} & \text{NO} & \text{NO} & \text{NO}
+\end{array}
+\]
+
+\section*{Foto 7}
+
+\textit{Teorema.}
+Sea $(X,d)$ espacio m\'etrico. Sea $E\subset X$.
+Entonces $E$ es abierto si y solo si $E^c$ es cerrado.
+
+\textit{Dem.}
+Sup\'ongase que $E^c$ es cerrado. P.D. que $E$ es abierto.
+
+\section*{Foto 8}
+
+Sea $x\in E$. Si $x$ no fuera interior, entonces para todo $r>0$ se tendr\'ia
+\[
+N_r(x)\cap E^c\neq\varnothing.
+\]
+Pero entonces $x\in (E^c)'$, contradicci\'on con que $E^c$ es cerrado.
+
+\section*{Foto 9}
+
+\[
+N_r(x)\subset E
+\]
+para alg\'un $r>0$.
+
+Rec\'iprocamente, si $E$ es abierto, entonces $E^c$ es cerrado, es decir,
+\[
+(E^c)'\subset E^c.
+\]
+
+\section*{Foto 10}
+
+\textit{Teorema.} Si $n\in\mathbb N$ y $G_1,\dots,G_n\subset X$ son abiertos, entonces
+\[
+G_1\cap\cdots\cap G_n
+\]
+es abierto.
+
+\textit{Dem.}
+Sea $x\in G_1\cap\cdots\cap G_n$.
+Por hip\'otesis de inducci\'on, si $G_1,\dots,G_n$ son abiertos, entonces
+\[
+G_1\cap\cdots\cap G_n
+\]
+es abierto.
+
+\section*{Foto 11}
+
+\textit{Teorema.} Si $n\in\mathbb N$ y $F_1,\dots,F_n\subset X$ son cerrados, entonces
+\[
+F_1\cup\cdots\cup F_n
+\]
+es cerrado.
+
+Por inducci\'on,
+\[
+(F_1\cup\cdots\cup F_n)^c=F_1^c\cap\cdots\cap F_n^c
+\]
+es abierto.
+
+\section*{Foto 12}
+
+\[
+\bigcap_{\alpha\in\Lambda}F_\alpha
+\]
+es cerrado si cada $F_\alpha$ es cerrado.
+
+\[
+\bigcup_{\alpha\in\Lambda}G_\alpha
+\]
+es abierto si cada $G_\alpha$ es abierto.
+
+\section*{Foto 13}
+
+\textit{Teorema.}
+Si $F_1,\dots,F_n$ son cerrados, entonces
+\[
+F_1\cup\cdots\cup F_n
+\]
+es cerrado.
+
+\textit{Dem.}
+Por hip\'otesis de inducci\'on.
+
+\section*{Foto 14}
+
+\textit{Recordemos que un conjunto es cerrado si contiene a todos sus puntos l\'imite.}
+
+Si $E$ es finito, entonces $E'=\varnothing$ y por tanto $E$ es cerrado.
+
+\section*{Foto 15}
+
+\textit{Ejemplos.}
+
+\[
+E=\left\{\frac1n\mid n\in\mathbb N\right\},\qquad F=\mathbb R^2,\qquad
+G=(a,b),\qquad H=[a,b],\qquad I=[a,b),\qquad J=(a,b].
+\]
+
+Tabla:
+\[
+\begin{array}{c|cccc}
+ & \text{cerrado} & \text{abierto} & \text{perfecto} & \text{acotado}\\
+\hline
+E & \text{NO} & \text{NO} & \text{NO} & \text{SI}\\
+F & \text{SI} & \text{SI} & \text{SI} & \text{NO}\\
+G & \text{NO} & \text{SI} & \text{NO} & \text{SI}\\
+H & \text{SI} & \text{NO} & \text{SI} & \text{SI}\\
+I & \text{NO} & \text{NO} & \text{NO} & \text{SI}\\
+J & \text{NO} & \text{NO} & \text{NO} & \text{SI}
+\end{array}
+\]
+
+\section*{Foto 16}
+
+\textit{Teorema.}
+Si $p\in E'$ entonces $N_r(p)\cap E$ es un conjunto infinito, para todo $r>0$.
+
+\textit{Dem.}
+Sup\'ongase que la afirmaci\'on es falsa.
+Entonces existe $r>0$ tal que $N_r(p)\cap E$ es finito.
+
+\section*{Foto 17}
+
+Si
+\[
+\{q_1,\dots,q_n\}=N_r(p)\cap E,
+\]
+entonces tomando
+\[
+t:=\min\{d(q_1,p),\dots,d(q_n,p)\}>0
+\]
+se tiene
+\[
+N_t(p)\cap(E\setminus\{p\})=\varnothing,
+\]
+contradicci\'on.
+
+\section*{Foto 18}
+
+\[
+N_r(p)\cap(E\setminus\{p\})\neq\varnothing.
+\]
+\[
+E'\subset E
+\]
+si $E$ es cerrado.
+
+\section*{Foto 19}
+
+\textit{Corolario.} Si $E\subset X$ es un conjunto finito, entonces $E'=\varnothing$.
+
+\textit{Teorema.} Un conjunto $E\subset X$ es perfecto si $E=E'$ y es cerrado.
+
+\section*{Foto 20}
+
+\textit{Conclusi\'on.}
+Si $E$ es abierto entonces $E^c$ es cerrado.
+Si $E^c$ es cerrado entonces $E$ es abierto.
+
+\end{document}

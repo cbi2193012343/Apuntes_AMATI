@@ -1,0 +1,312 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 21May26}
+\end{center}
+
+\section*{Fotos 18--20}
+
+\textit{Más ejercicios:} 22, 23, 24, 25, 26, 27, 29.
+
+\textit{Proposición.} Sea $n\in\mathbb N$ fijo. Sean $x,y\in\mathbb R^n$,
+\[
+x=(x_1,\dots,x_n),\qquad y=(y_1,\dots,y_n).
+\]
+Entonces
+\[
+\max_{1\le i\le n}|x_i-y_i|
+\le
+\left(\sum_{i=1}^n (x_i-y_i)^2\right)^{1/2}
+\le
+\sqrt n\,\max_{1\le i\le n}|x_i-y_i|.
+\]
+La primera es la llamada nueva distancia y la segunda es la distancia euclidiana.
+
+\textit{Dem.} Si
+\[
+m=\max_{1\le i\le n}|x_i-y_i|,
+\]
+entonces
+\[
+m^2=\max_{1\le i\le n}|x_i-y_i|^2
+\le \sum_{i=1}^n (x_i-y_i)^2
+\le n\,m^2.
+\]
+Extrayendo raíz cuadrada se obtiene la prueba.
+
+\textit{Teorema.} Sea $(X,d_1)$ un espacio métrico. Sea $d_2:X\times X\to[0,\infty)$.
+Supongamos que existen constantes $c$ y $C$ positivas, con $c<C$, tales que
+\[
+c\,d_1(x,y)\le d_2(x,y)\le C\,d_1(x,y),\qquad \forall x,y\in X.
+\]
+Entonces $d_1$ y $d_2$ son equivalentes.
+
+\textit{Dem.} Requerimos varias etapas.
+
+\textit{Lema.} Si $(X,d)$ es espacio métrico, sea $A\subset X$ un conjunto abierto. Entonces $A$ es la unión de vecindades, es decir, es la unión de conjuntos de la forma $N_r(q)$.
+
+\textit{Dem. del lema.} Sea $q\in A$. Existe $r_q>0$ tal que $N_{r_q}(q)\subset A$.
+Luego
+\[
+A\subset \bigcup_{q\in A} N_{r_q}(q)\subset A,
+\]
+así que
+\[
+A=\bigcup_{q\in A} N_{r_q}(q).
+\]
+
+\textit{Dem. del teorema.} Sea $A\subset X$ abierto en $(X,d_1)$. Probamos que $A$ es abierto en $(X,d_2)$.
+Sea $a\in A$. Entonces existe $r_a>0$ tal que $N_{r_a}^{d_1}(a)\subset A$.
+Como
+\[
+N_{r_a/C}^{d_2}(a)\subset N_{r_a}^{d_1}(a),
+\]
+se obtiene
+\[
+N_{r_a/C}^{d_2}(a)\subset A.
+\]
+Recíprocamente, si $A$ es abierto en la métrica $d_2$, entonces existe $r_a>0$ tal que
+\[
+N_{r_a}^{d_2}(a)\subset A.
+\]
+Como
+\[
+N_{r_a/C}^{d_1}(a)\subset N_{r_a}^{d_2}(a),
+\]
+se concluye que $A$ es abierto en $(X,d_1)$.
+
+\textit{Corolario.} Si $F\subset X$ es cerrado y $K\subset X$ es compacto, entonces $F\cap K$ es compacto.
+
+\textit{Dem.} $F\cap K$ es cerrado porque es intersección de cerrado con compacto cerrado. Además $F\cap K\subset K$. Por el teorema anterior, $F\cap K$ es compacto.
+
+\textit{Teorema.} Sea $\mathcal K=\{K_\alpha\}_{\alpha\in\Lambda}$ una familia de subconjuntos compactos de $X$.
+Supongamos que toda subfamilia finita de $\mathcal K$ tiene intersección no vacía. Entonces
+\[
+\bigcap_{\alpha\in\Lambda}K_\alpha\neq\varnothing.
+\]
+
+\textit{Dem.} Si
+\[
+\bigcap_{\alpha\in\Lambda}K_\alpha=\varnothing,
+\]
+entonces, para algún $\alpha_0\in\Lambda$, se tiene
+\[
+K_{\alpha_0}\cap\bigcap_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha=\varnothing.
+\]
+Sea $\alpha_0\in\Lambda$ fijo. Entonces
+\[
+\varnothing=K_{\alpha_0}\cap\bigcap_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha.
+\]
+Luego
+\[
+K_{\alpha_0}\subset \bigcup_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha^c.
+\]
+Como $K_\alpha^c$ es abierto, la familia $\{K_\alpha^c\}_{\alpha\in\Lambda\setminus\{\alpha_0\}}$ es una cubierta abierta de $K_{\alpha_0}$.
+Por compacidad de $K_{\alpha_0}$, existen $\alpha_1,\dots,\alpha_m\in\Lambda$ tales que
+\[
+K_{\alpha_0}\subset K_{\alpha_1}^c\cup\cdots\cup K_{\alpha_m}^c.
+\]
+Por tanto,
+\[
+K_{\alpha_0}\cap K_{\alpha_1}\cap\cdots\cap K_{\alpha_m}=\varnothing,
+\]
+contradicción.
+
+\section*{Fotos 1--4}
+
+\textit{Proposición.} Sea $(X,d_1)$ un espacio métrico. Sea
+\[
+d_2:X\times X\to[0,\infty),\qquad
+d_2(x,y)=\frac{d_1(x,y)}{1+d_1(x,y)}.
+\]
+Entonces $d_2$ es métrica.
+
+\textit{Dem.} Positividad:
+\[
+d_2(x,y)\ge 0,\qquad d_2(x,y)=0 \iff d_1(x,y)=0 \iff x=y.
+\]
+Simetría:
+\[
+d_2(x,y)=d_2(y,x).
+\]
+Falta la desigualdad del triángulo:
+\[
+d_2(x,y)\le d_2(x,z)+d_2(z,y),\qquad \forall x,y,z\in X.
+\]
+Es decir, hay que probar
+\[
+\frac{d_1(x,y)}{1+d_1(x,y)}
+\le
+\frac{d_1(x,z)}{1+d_1(x,z)}
++\frac{d_1(z,y)}{1+d_1(z,y)}.
+\]
+
+\textit{Introducimos tres funciones}
+\[
+f,g,h:\mathbb R_+\to\mathbb R_+,
+\]
+\[
+f(a)=\frac a{1+a}=1-\frac1{1+a}.
+\]
+Sea $b>0$ fijo.
+\[
+g(c)=\frac{b+c}{1+b+c},
+\qquad
+h(c)=\frac b{1+b}+\frac c{1+c}.
+\]
+Demostraremos que
+\[
+g(c)\le h(c)\qquad \forall c\ge 0.
+\]
+Si $0\le a\le b+c$, entonces
+\[
+\frac a{1+a}=f(a)\le f(b+c)=g(c)\le h(c)=\frac b{1+b}+\frac c{1+c}.
+\]
+
+\textit{Demostración.} Consideramos
+\[
+g(0)=\frac b{1+b},\qquad h(0)=\frac b{1+b}.
+\]
+Además
+\[
+g'(c)=\frac1{(1+b+c)^2},\qquad h'(c)=\frac1{(1+c)^2}.
+\]
+Como $1+b+c>1+c$, se tiene
+\[
+g'(c)<h'(c).
+\]
+Por el teorema fundamental del cálculo,
+\[
+g(c)=g(0)+\int_0^c g'(x)\,dx
+\le h(0)+\int_0^c h'(x)\,dx
+h(c).
+\]
+Así se obtiene la desigualdad requerida.
+
+\section*{Fotos 5--8}
+
+\textit{Proposición.} Sea $(X,d_1)$ espacio métrico. Sea
+\[
+d_2(x,y)=\frac{d_1(x,y)}{1+d_1(x,y)}.
+\]
+Entonces $d_2$ es métrica.
+
+\textit{Dem.} Ya vimos positividad y simetría. La desigualdad del triángulo se reduce a la desigualdad anterior para las funciones $f,g,h$.
+
+\textit{Teorema.} Sea $(X,d_1)$ espacio métrico y sea $K\subset X$ un conjunto compacto. Entonces $K$ es cerrado.
+
+\textit{Dem.} Probamos que $K^c$ es abierto.
+Sea $p\in K^c$.
+Para cada $q\in K$, sea
+\[
+V_q=\frac12 d(p,q)>0.
+\]
+Afirmación:
+\[
+N_{V_q}(q)\cap N_{V_q}(p)=\varnothing.
+\]
+Es claro que
+\[
+K\subset \bigcup_{q\in K}N_{V_q}(q).
+\]
+Por compacidad de $K$, existen $q_1,\dots,q_n\in K$ tales que
+\[
+K\subset N_{V_{q_1}}(q_1)\cup\cdots\cup N_{V_{q_n}}(q_n).
+\]
+Como
+\[
+p\in\bigcap_{i=1}^n N_{V_{q_i}}(p),
+\]
+se demuestra que
+\[
+\bigcap_{i=1}^n N_{V_{q_i}}(p)\cap K=\varnothing.
+\]
+Por tanto $K^c$ es abierto.
+
+\section*{Fotos 9--12}
+
+\textit{Teorema.} Sea $(X,d_1)$ y sea $d_2$ otra métrica sobre $X$.
+Supongamos que existen constantes $c$ y $C$ positivas tales que
+\[
+c\,d_1(x,y)\le d_2(x,y)\le C\,d_1(x,y),\qquad \forall x,y\in X.
+\]
+Entonces $d_1$ y $d_2$ son equivalentes.
+
+\textit{Lema.} Si $(X,d)$ es espacio métrico, sea $A\subset X$ un conjunto abierto. Entonces $A$ es la unión de vecindades; es decir, la unión de conjuntos de la forma $N_r(q)$.
+
+\textit{Dem. del lema.} Si $q\in A$, existe $r_q>0$ tal que $N_{r_q}(q)\subset A$.
+Luego
+\[
+A=\bigcup_{q\in A}N_{r_q}(q).
+\]
+
+\textit{Dem. del teorema.} Sea $A\subset X$ abierto en $(X,d_1)$. Probamos que $A$ es abierto en $(X,d_2)$.
+Sea $a\in A$ y sea $r_a>0$ tal que
+\[
+N_{r_a}^{d_1}(a)\subset A.
+\]
+Como
+\[
+N_{r_a/C}^{d_2}(a)\subset N_{r_a}^{d_1}(a),
+\]
+se sigue que $A$ es abierto en $(X,d_2)$.
+Recíprocamente, si $A$ es abierto en $(X,d_2)$, entonces existe $r_a>0$ tal que
+\[
+N_{r_a}^{d_2}(a)\subset A,
+\]
+y como
+\[
+N_{r_a/C}^{d_1}(a)\subset N_{r_a}^{d_2}(a),
+\]
+se obtiene que $A$ es abierto en $(X,d_1)$.
+
+\section*{Fotos 13--17}
+
+\textit{Definición.} Sea $(X,d)$ un espacio métrico. Sea $D\subset X$. Decimos que $D$ es denso si
+\[
+\overline D=X.
+\]
+También se escribe
+\[
+D\cup D'= \overline D = X.
+\]
+\textit{b)} Un espacio métrico $(X,d)$ es separable si existe $D\subset X$ tal que $D$ es denso y es numerable.
+
+\textit{Ejemplos.}
+\[
+E_1=\left\{\frac1n:n\in\mathbb N\right\}\cup\{0\},\qquad E_1'=\{0\},
+\]
+\[
+E_2=\left\{2+\frac1n:n\in\mathbb N\right\}\cup\{2\},\qquad E_2'=\{2\},
+\]
+\[
+E_3=\left\{10+\frac1n:n\in\mathbb N\right\}\cup\{10\},\qquad E_3'=\{10\}.
+\]
+Y también
+\[
+E_1\cup E_2\cup E_3.
+\]
+
+\[
+F_j=\left\{\frac1j+\frac1n:n=1,2,\dots\right\}\cup\left\{\frac1j\right\},
+\qquad
+F_j'=\left\{\frac1j\right\}.
+\]
+Finalmente,
+\[
+\bigcup_{j=1}^\infty F_j
+\]
+da un ejemplo de unión numerable.
+
+\end{document}

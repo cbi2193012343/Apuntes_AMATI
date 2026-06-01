@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 28May26}
+\end{center}
+
+\section*{Fotos 1--6}
+
+\textit{Lema.} Sea $(X,d)$ un espacio métrico.
+Sean $a\in X$ y $r>0$.
+Definimos
+\[
+V_r(a):=\{x\in X\mid d(x,a)\le r\}.
+\]
+Ojo:
+\[
+N_r(a)=\{x\in X\mid d(x,a)<r\}\subset V_r(a).
+\]
+Entonces:
+\begin{enumerate}[label=\roman*)]
+    \item $V_r(a)$ es cerrado.
+    \item $N_r(a)\subset V_r(a)$, aunque la contención puede ser estricta.
+    \item Si $X=\mathbb R^k$, entonces $\overline{N_r(a)}=V_r(a)$.
+\end{enumerate}
+
+\textit{Dem.} i) Demostraremos que $(V_r(a))^c$ es abierto.
+Sea $b\in (V_r(a))^c$.
+Sea
+\[
+d_0=\frac12\bigl(d(b,a)-r\bigr)>0.
+\]
+Afirmamos que
+\[
+N_{d_0}(b)\subset (V_r(a))^c.
+\]
+Si $x\in N_{d_0}(b)$, entonces
+\[
+r<d(a,b)\le d(a,x)+d(x,b)\le d(a,x)+d_0,
+\]
+de donde $d(a,x)>r$.
+Por tanto $x\notin V_r(a)$.
+
+ii) es inmediato.
+
+Para mostrar que la contención puede ser estricta, consideremos la métrica discreta
+\[
+d(x,y)=\begin{cases}
+0,&x=y,\\
+1,&x\ne y.
+\end{cases}
+\]
+Entonces
+\[
+N_1(a)=\{x\in X\mid d(a,x)<1\}=\{a\},
+\qquad
+V_1(a)=\{x\in X\mid d(a,x)\le 1\}=X.
+\]
+
+iii) Si $X=\mathbb R^k$, entonces $\overline{N_r(a)}=V_r(a)$.
+Sea $x\in V_r(a)\setminus \overline{N_r(a)}$.
+Tomemos
+\[
+x_\lambda=(1-\lambda)a+\lambda x,\qquad 0\le \lambda\le 1.
+\]
+Entonces
+\[
+d(a,x_\lambda)=\|a-((1-\lambda)a+\lambda x)\|
+=\|\lambda(a-x)\|
+=|\lambda|\,\|a-x\|
+\le \lambda r.
+\]
+Si $0\le\lambda<1$, se tiene $d(a,x_\lambda)<r$, así que $x_\lambda\in N_r(a)$.
+Al dejar $\lambda\to 1$, se obtiene $x\in\overline{N_r(a)}$.
+
+\section*{Fotos 7--11}
+
+\textit{Ejemplo.} En la métrica discreta,
+\[
+N_1(a)=\{a\}\qquad\text{y}\qquad V_1(a)=X.
+\]
+Así que la inclusión $N_1(a)\subset V_1(a)$ puede ser estricta.
+
+\textit{Observación.} En $\mathbb R^k$ la vecindad cerrada coincide con la cerradura de la abierta.
+Esto se ve porque si $x\in V_r(a)$, entonces el segmento
+\[
+(1-\lambda)a+\lambda x,\qquad 0\le \lambda<1,
+\]
+permanece dentro de $N_r(a)$ y se aproxima a $x$ cuando $\lambda\to 1$.
+
+\section*{Fotos 12--13}
+
+\textit{Teo.} Sea $T\subset\mathbb R^d$ infinito y acotado.
+Entonces $T$ cabe en una $d$-celda,
+\[
+T\subset [a_1,b_1]\times\cdots\times[a_d,b_d].
+\]
+Ya sabemos que
+\[
+[a_1,b_1]\times\cdots\times[a_d,b_d]
+\]
+es compacto.
+Por tanto, $T$ es un subconjunto infinito de un compacto; luego tiene punto límite en $\mathbb R^d$.
+
+\textit{Corolario (Weierstrass).} Todo subconjunto infinito acotado de $\mathbb R^d$ tiene un punto límite en $\mathbb R^d$.
+
+\textit{Normas en $\mathbb R^k$.} Para $x,a\in\mathbb R^k$:
+\[
+\|x-a\|_1=\sqrt{\sum_{i=1}^k(x_i-a_i)^2},
+\qquad
+\|x-a\|_2=\max\{|x_i-a_i|:i=1,\dots,k\}.
+\]
+Además,
+\[
+\|x\|_2=\|x-0\|_2=\max\{|x_1|,\dots,|x_k|\},
+\qquad
+\|x\|_1=\sqrt{\sum_{i=1}^k x_i^2}.
+\]
+
+\textit{Ejercicio.} Probar lo siguiente:
+\begin{enumerate}[label=\roman*)]
+    \item Si $x\in\mathbb R^k$ y $\alpha\in\mathbb R$, entonces
+    \[
+    \|\alpha x\|_2=|\alpha|\,\|x\|_2.
+    \]
+    \item
+    \[
+    \|x\|_2=0 \iff x=0.
+    \]
+    \item
+    \[
+    \|x+y\|_2\le \|x\|_2+\|y\|_2.
+    \]
+\end{enumerate}
+
+\end{document}

@@ -1,0 +1,1222 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definición}[section]
+\newtheorem{example}[definition]{Ejemplo}
+\newtheorem{exercise}[definition]{Ejercicio}
+\theoremstyle{plain}
+\newtheorem{theorem}[definition]{Teorema}
+\newtheorem{proposition}[definition]{Proposición}
+\newtheorem{lemma}[definition]{Lema}
+\newtheorem{corollary}[definition]{Corolario}
+\theoremstyle{remark}
+\newtheorem*{remark}{Observación}
+
+\begin{document}
+
+\begin{center}
+{\Large Análisis Matemático I}\\[2mm]
+{\large Apuntes organizados por fecha}\\[2mm]
+\end{center}
+
+\begin{remark}
+La notación y la terminología se normalizan siguiendo \textit{Rudin, Principios de Análisis Matemático}, 3.\textsuperscript{a} edición, para mantener consistencia en los conceptos de conjuntos numerables, espacios métricos y topología básica.
+\end{remark}
+
+\section*{11May26}
+
+\subsection*{Imágenes, preimágenes y equivalencia}
+
+\begin{definition}[Imagen directa]
+Sean $A$ y $B$ conjuntos, y sea $f\colon A\to B$.
+Si $C\subset A$, la imagen directa de $C$ bajo $f$ es
+\[
+f(C)=\{f(a)\mid a\in C\}.
+\]
+\end{definition}
+
+\begin{definition}[Imagen inversa]
+Sean $A$ y $B$ conjuntos, y sea $f\colon A\to B$.
+Si $D\subset B$, la imagen inversa de $D$ bajo $f$ es
+\[
+f^{-1}(D)=\{a\in A\mid f(a)\in D\}.
+\]
+\end{definition}
+
+\begin{proposition}[Propiedades básicas]
+Sea $f\colon A\to B$.
+\begin{enumerate}[label=\arabic*.]
+    \item $f\!\left(\bigcup_\alpha C_\alpha\right)=\bigcup_\alpha f(C_\alpha)$.
+    \item $f^{-1}\!\left(\bigcup_\alpha D_\alpha\right)=\bigcup_\alpha f^{-1}(D_\alpha)$.
+    \item $f^{-1}\!\left(\bigcap_\alpha D_\alpha\right)=\bigcap_\alpha f^{-1}(D_\alpha)$.
+    \item $f^{-1}(D^c)=\bigl(f^{-1}(D)\bigr)^c$.
+\end{enumerate}
+\end{proposition}
+
+\begin{example}
+Para toda función $f$, se tiene
+\[
+f(\varnothing)=\varnothing,
+\qquad
+f^{-1}(\varnothing)=\varnothing.
+\]
+\end{example}
+
+\begin{definition}[Conjuntos equivalentes]
+Sean $A$ y $B$ conjuntos.
+Decimos que $A$ y $B$ son equivalentes si existe una biyección $f\colon A\to B$.
+\end{definition}
+
+\begin{remark}
+La equivalencia anterior define una relación de equivalencia entre conjuntos.
+\end{remark}
+
+\subsection*{Cardinalidad y numerabilidad}
+
+\begin{definition}[Cardinalidad]
+Sea $A$ un conjunto. Su cardinalidad es la clase de equivalencia a la que pertenece.
+\end{definition}
+
+\begin{definition}[Conjunto finito]
+Un conjunto $A$ es finito si existe $n\in\mathbb N$ tal que $A$ es biyectivo con $\{1,\dots,n\}$.
+\end{definition}
+
+\begin{definition}[Conjunto numerable]
+Un conjunto $A$ es numerable si existe una biyección $f\colon\mathbb N\to A$.
+\end{definition}
+
+\begin{theorem}[Subconjuntos infinitos de conjuntos numerables]
+Si $H$ es un conjunto numerable y $E\subset H$ es infinito, entonces $E$ es numerable.
+\end{theorem}
+
+\begin{proof}
+Sea $f\colon\mathbb N\to H$ una biyección.
+Como $E$ es infinito, podemos construir por inducción una sucesión estrictamente creciente
+\[
+h(1)<h(2)<h(3)<\cdots
+\]
+tal que $f(h(j))\in E$ para todo $j\in\mathbb N$.
+Entonces $f\circ h\colon\mathbb N\to E$ es biyectiva.
+\end{proof}
+
+\begin{lemma}
+$\mathbb N\times\mathbb N$ es numerable.
+\end{lemma}
+
+\begin{proof}
+Se enumera por diagonales:
+\[
+(1,1),(1,2),(2,1),(1,3),(2,2),(3,1),\dots
+\]
+lo cual induce una biyección con $\mathbb N$.
+\end{proof}
+
+\begin{theorem}[Unión numerable de numerables]
+Si $\{E_n\}_{n=1}^\infty$ es una familia de conjuntos numerables, entonces
+\[
+\bigcup_{n=1}^\infty E_n
+\]
+es numerable.
+\end{theorem}
+
+\begin{proof}
+Primero, si los $E_n$ son mutuamente ajenos, definimos
+\[
+T\colon\mathbb N\times\mathbb N\to \bigcup_{n=1}^\infty E_n,
+\qquad T(n,j)=x_{nj},
+\]
+donde $E_n=\{x_{n1},x_{n2},\dots\}$.
+El mapa $T$ es biyectivo.
+En el caso general, se reemplaza $E_n$ por
+\[
+F_1=E_1,\qquad F_n=E_n\setminus\bigcup_{k=1}^{n-1}E_k,\quad n\ge2,
+\]
+y se aplica el caso disjunto.
+\end{proof}
+
+\begin{corollary}
+Si $A$ es numerable y, para cada $\alpha\in A$, el conjunto $E_\alpha$ es numerable, entonces
+\[
+\bigcup_{\alpha\in A}E_\alpha
+\]
+es numerable.
+\end{corollary}
+
+\begin{corollary}[Producto cartesiano de numerables]
+Si $A$ y $B$ son conjuntos numerables, entonces $A\times B$ es numerable.
+\end{corollary}
+
+\begin{proof}
+Para cada $\alpha\in A$, sea
+\[
+A_\alpha=\{(\alpha,\beta)\mid \beta\in B\}.
+\]
+Entonces
+\[
+A\times B=\bigcup_{\alpha\in A}A_\alpha,
+\]
+y cada $A_\alpha$ es numerable porque está en biyección con $B$.
+\end{proof}
+
+\begin{theorem}[Los racionales son numerables]
+\[
+\mathbb Q=\left\{\frac{a}{b}\,\middle|\, a\in\mathbb Z,\ b\in\mathbb N,\ b>0\right\}
+\]
+es numerable.
+\end{theorem}
+
+\begin{proof}
+La aplicación
+\[
+S\colon\mathbb Z\times\mathbb N\to\mathbb Q,\qquad S(a,b)=\frac ab,
+\]
+es sobreyectiva.
+Como $\mathbb Z\times\mathbb N$ es numerable, también lo es su imagen $\mathbb Q$.
+\end{proof}
+
+\begin{corollary}
+Si $A$ es numerable y $f\colon A\to B$ es sobreyectiva, entonces $B$ es a lo más numerable.
+\end{corollary}
+
+\begin{theorem}[Ejemplo no numerable]
+Sea
+\[
+\mathcal C=\{f\colon\mathbb N\to\{0,1\}\}.
+\]
+Entonces $\mathcal C$ no es numerable.
+\end{theorem}
+
+\begin{proof}
+Supongamos que $\mathcal C=\{f_1,f_2,\dots\}$.
+Definimos
+\[
+g(n)=1-f_n(n).
+\]
+Entonces $g\in\mathcal C$, pero $g\neq f_n$ para todo $n\in\mathbb N$, contradicción.
+\end{proof}
+
+\subsection*{Espacios métricos y espacios de funciones}
+
+\begin{definition}[Métrica]
+Sea $X$ un conjunto no vacío.
+Una métrica en $X$ es una función
+\[
+d\colon X\times X\to [0,\infty)
+\]
+tal que, para todo $p,q,r\in X$:
+\begin{enumerate}[label=\roman*)]
+    \item $d(p,q)\ge0$ y $d(p,q)=0$ si y solo si $p=q$;
+    \item $d(p,q)=d(q,p)$;
+    \item $d(p,r)\le d(p,q)+d(q,r)$.
+\end{enumerate}
+\end{definition}
+
+\begin{example}[Distancia en $\mathbb R$]
+En $\mathbb R$, la función $d(a,b)=|a-b|$ es una métrica.
+\end{example}
+
+\begin{example}[Distancia euclídea]
+En $\mathbb R^d$,
+\[
+d(a,b)=\sqrt{\sum_{i=1}^d(a_i-b_i)^2}
+\]
+es una métrica.
+\end{example}
+
+\begin{example}[Métrica discreta]
+Si $X$ es cualquier conjunto, la función
+\[
+d(x,y)=
+\begin{cases}
+1,& x\neq y,\\
+0,& x=y,
+\end{cases}
+\]
+define una métrica.
+\end{example}
+
+\begin{definition}[Funciones continuas]
+Sean $a,b\in\mathbb R$ con $a<b$.
+Denotamos por
+\[
+C[a,b]=\{f:[a,b]\to\mathbb R\mid f \text{ es continua}\}.
+\]
+\end{definition}
+
+\begin{theorem}[Métrica del supremo en funciones continuas]
+Sea
+\[
+d\colon C[a,b]\times C[a,b]\to[0,\infty),\qquad
+d(f,g)=\sup\{|f(x)-g(x)|\mid x\in[a,b]\}.
+\]
+Entonces $d$ es una métrica.
+\end{theorem}
+
+\begin{proof}
+La positividad y la simetría son inmediatas.
+Si $f\neq g$, existe $x_0\in[a,b]$ tal que $f(x_0)\neq g(x_0)$; por continuidad, eso produce un intervalo $U$ donde $f\neq g$ y por tanto $d(f,g)>0$.
+La desigualdad del triángulo se obtiene de
+\[
+|f(x)-g(x)|\le |f(x)-h(x)|+|h(x)-g(x)|
+\]
+y al tomar supremo en $x$.
+\end{proof}
+
+\begin{definition}[Funciones acotadas]
+Sea $(X,d)$ un espacio métrico y sea $A$ un conjunto cualquiera.
+Denotamos por
+\[
+\mathcal B(A,X)=\{f\colon A\to X\mid f \text{ es acotada}\}.
+\]
+\end{definition}
+
+\begin{definition}[Métrica del supremo en funciones acotadas]
+Si $f,g\in\mathcal B(A,X)$, definimos
+\[
+D(f,g)=\sup\{d(f(x),g(x))\mid x\in A\}.
+\]
+\end{definition}
+
+\begin{theorem}
+La función $D$ es una métrica en $\mathcal B(A,X)$.
+\end{theorem}
+
+\begin{proof}
+La positividad y la simetría son inmediatas.
+Para la desigualdad del triángulo, basta usar la desigualdad del triángulo en $(X,d)$ y tomar supremo.
+\end{proof}
+
+\begin{example}
+Si $A=\{1,2\}$ y $X=\mathbb R$, entonces $\mathcal B(A,X)\cong\mathbb R^2$.
+Si identificamos $f$ con $(f(1),f(2))$, la métrica $D$ se escribe como
+\[
+D(f,g)=\max\{|f(1)-g(1)|,\ |f(2)-g(2)|\}.
+\]
+\end{example}
+
+\section*{12May26}
+
+\subsection*{Espacios de funciones y métrica del supremo}
+
+\begin{theorem}[Métrica del supremo en funciones continuas]
+Sean $a,b\in\mathbb R$ con $a<b$ y sea
+\[
+d(f,g)=\sup\{\,|f(x)-g(x)|\mid x\in[a,b]\,\}.
+\]
+Entonces $d$ es una métrica en $C[a,b]$.
+\end{theorem}
+
+\begin{proof}
+La positividad y la simetría son inmediatas. Si $f\neq g$, existe $x_0\in[a,b]$ tal que $f(x_0)\neq g(x_0)$; en particular,
+\[
+d(f,g)\ge |f(x_0)-g(x_0)|>0.
+\]
+La desigualdad triangular se obtiene de
+\[
+|f(x)-g(x)|\le |f(x)-h(x)|+|h(x)-g(x)|
+\]
+y al tomar supremo en $x\in[a,b]$.
+\end{proof}
+
+\begin{definition}[Funciones acotadas]
+Sea $(X,d)$ un espacio métrico y sea $A$ un conjunto cualquiera. Denotamos por
+\[
+\mathcal B(A,X)=\{f\colon A\to X\mid f \text{ es función acotada}\}.
+\]
+\end{definition}
+
+\begin{definition}[Métrica del supremo en funciones acotadas]
+Si $f,g\in\mathcal B(A,X)$, definimos
+\[
+D(f,g)=\sup\{d(f(x),g(x))\mid x\in A\}.
+\]
+\end{definition}
+
+\begin{theorem}
+La función $D$ es una métrica en $\mathcal B(A,X)$.
+\end{theorem}
+
+\begin{proof}
+La positividad y la simetría son inmediatas. Para la desigualdad del triángulo, usamos la desigualdad triangular en $(X,d)$ y tomamos supremo.
+\end{proof}
+
+\begin{example}
+Si $A=\{1,2\}$ y $X=\mathbb R$, entonces $\mathcal B(A,X)\cong\mathbb R^2$. Si identificamos $f$ con $(f(1),f(2))$, la métrica $D$ se escribe como
+\[
+D(f,g)=\max\{|f(1)-g(1)|,\ |f(2)-g(2)|\}.
+\]
+\end{example}
+
+\subsection*{Vecindades, puntos límite e interior}
+
+\begin{definition}[Vecindad]
+Sea $(X,d)$ un espacio métrico, sea $p\in X$ y sea $r>0$.
+La vecindad o entorno de radio $r$ centrada en $p$ es
+\[
+N_r(p)=\{q\in X\mid d(q,p)<r\}.
+\]
+\end{definition}
+
+\begin{definition}[Punto límite]
+Sea $E\subset X$ y sea $p\in X$.
+Decimos que $p$ es punto límite de $E$ si toda vecindad de $p$ contiene elementos de $E$ distintos de $p$.
+Equivalentemente,
+\[
+\forall r>0,\qquad N_r(p)\cap(E\setminus\{p\})\neq\varnothing.
+\]
+\end{definition}
+
+\begin{definition}[Punto aislado]
+Sea $E\subset X$ y sea $p\in E$.
+Si $p$ no es punto límite de $E$, decimos que $p$ es un punto aislado de $E$.
+\end{definition}
+
+\begin{example}
+En $X=\mathbb R$ y
+\[
+E=(0,1]\cup\{2\},
+\]
+los puntos $0$ y $1$ son puntos límite de $E$, mientras que $2$ es un punto aislado de $E$.
+\end{example}
+
+\begin{definition}[Punto interior]
+Sea $E\subset X$ y sea $p\in X$.
+Decimos que $p$ es un punto interior de $E$ si existe $r>0$ tal que
+\[
+N_r(p)\subset E.
+\]
+\end{definition}
+
+\subsection*{Conjuntos abiertos, cerrados, perfectos, acotados y densos}
+
+\begin{definition}[Conjunto abierto]
+Un conjunto $E\subset X$ es abierto si todos sus elementos son puntos interiores.
+\end{definition}
+
+\begin{definition}[Conjunto cerrado]
+Un conjunto $E\subset X$ es cerrado si contiene a todos sus puntos límite.
+\end{definition}
+
+\begin{definition}[Complemento]
+Si $E\subset X$, su complemento es
+\[
+E^c=\{x\in X\mid x\notin E\}.
+\]
+\end{definition}
+
+\begin{definition}[Conjunto perfecto]
+Un conjunto $E\subset X$ es perfecto si es cerrado y todos sus elementos son puntos límite de $E$.
+\end{definition}
+
+\begin{definition}[Conjunto acotado]
+Un conjunto $E\subset X$ es acotado si existen $M>0$ y $q\in X$ tales que
+\[
+d(p,q)<M\qquad \forall p\in E.
+\]
+\end{definition}
+
+\begin{definition}[Conjunto denso]
+Un conjunto $E\subset X$ es denso en $X$ si todo $p\in X$ es punto límite de $E$.
+\end{definition}
+
+\begin{example}
+En $X=\mathbb R$, el conjunto
+\[
+E=(0,1]\cup\{2\}
+\]
+tiene a $2$ como punto aislado, a $0$ y $1$ como puntos límite, y no es perfecto.
+\end{example}
+
+\section*{14May26}
+
+\subsection*{Vecindades y conjuntos derivados}
+
+\begin{theorem}[Toda vecindad es abierta]
+Sea $(X,d)$ un espacio métrico. Toda vecindad $N_r(p)$ es un conjunto abierto.
+\end{theorem}
+
+\begin{proof}
+Sea $q\in N_r(p)$.
+Tomamos
+\[
+h=r-d(q,p)>0.
+\]
+Si $a\in N_h(q)$, entonces
+\[
+d(a,p)\le d(a,q)+d(q,p)<h+d(q,p)=r.
+\]
+Por tanto, $a\in N_r(p)$, y así $N_h(q)\subset N_r(p)$.
+\end{proof}
+
+\begin{definition}[Conjunto derivado]
+Sea $E\subset X$.
+Denotamos por $E'$ al conjunto de todos los puntos límite de $E$.
+\end{definition}
+
+\begin{theorem}
+Si $p\in E'$, entonces $N_r(p)\cap E$ es un conjunto infinito para todo $r>0$.
+\end{theorem}
+
+\begin{proof}
+Supongamos lo contrario.
+Entonces existe $r>0$ tal que $N_r(p)\cap E$ es finito.
+Escribamos
+\[
+N_r(p)\cap E=\{q_1,\dots,q_n\}.
+\]
+Tomemos
+\[
+t=\min\{d(q_1,p),\dots,d(q_n,p)\}>0.
+\]
+Entonces
+\[
+N_t(p)\cap(E\setminus\{p\})=\varnothing,
+\]
+contradicción con que $p\in E'$.
+\end{proof}
+
+\begin{corollary}
+Si $E\subset X$ es finito, entonces $E'=\varnothing$.
+\end{corollary}
+
+\begin{corollary}
+Si $E\subset X$ es finito, entonces $E$ es cerrado.
+\end{corollary}
+
+\subsection*{Abiertos y cerrados}
+
+\begin{theorem}
+Sea $(X,d)$ un espacio métrico y sea $E\subset X$. Entonces $E$ es abierto si y solo si $E^c$ es cerrado.
+\end{theorem}
+
+\begin{proof}
+Supongamos que $E^c$ es cerrado.
+Sea $x\in E$.
+Si $x$ no fuese interior, entonces para todo $r>0$ tendríamos
+\[
+N_r(x)\cap E^c\neq\varnothing,
+\]
+y así $x\in (E^c)'$, contradicción.
+Luego existe $r>0$ tal que $N_r(x)\subset E$, y $E$ es abierto.
+
+Recíprocamente, si $E$ es abierto, entonces $E^c$ es cerrado porque $(E^c)' \subset E^c$.
+\end{proof}
+
+\begin{theorem}
+Si $G_1,\dots,G_n\subset X$ son abiertos, entonces
+\[
+G_1\cap\cdots\cap G_n
+\]
+es abierto.
+\end{theorem}
+
+\begin{proof}
+Sea $x\in G_1\cap\cdots\cap G_n$.
+Para cada $i$ existe $r_i>0$ tal que $N_{r_i}(x)\subset G_i$.
+Tomamos $r=\min\{r_1,\dots,r_n\}$.
+Entonces
+\[
+N_r(x)\subset G_1\cap\cdots\cap G_n.
+\]
+\end{proof}
+
+\begin{theorem}
+Si $F_1,\dots,F_n\subset X$ son cerrados, entonces
+\[
+F_1\cup\cdots\cup F_n
+\]
+es cerrado.
+\end{theorem}
+
+\begin{proof}
+Como
+\[
+(F_1\cup\cdots\cup F_n)^c=F_1^c\cap\cdots\cap F_n^c,
+\]
+y cada $F_i^c$ es abierto, el resultado sigue del teorema anterior.
+\end{proof}
+
+\begin{proposition}[Operaciones arbitrarias]
+\begin{enumerate}[label=\arabic*.]
+    \item La unión arbitraria de abiertos es abierta.
+    \item La intersección arbitraria de cerrados es cerrada.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+Se usan los complementos y el teorema abierto-cerrado.
+\end{proof}
+
+\begin{example}
+Si
+\[
+E=\left\{\frac1n\mid n\in\mathbb N\right\},\quad
+F=\mathbb R^2,\quad
+G=(a,b),\quad
+H=[a,b],\quad
+I=[a,b),\quad
+J=(a,b],
+\]
+entonces, según la tabla del pizarrón,
+\[
+\begin{array}{c|cccc}
+ & \text{cerrado} & \text{abierto} & \text{perfecto} & \text{acotado}\\
+\hline
+E & \text{NO} & \text{NO} & \text{NO} & \text{SÍ}\\
+F & \text{SÍ} & \text{SÍ} & \text{SÍ} & \text{NO}\\
+G & \text{NO} & \text{SÍ} & \text{NO} & \text{SÍ}\\
+H & \text{SÍ} & \text{NO} & \text{SÍ} & \text{SÍ}\\
+I & \text{NO} & \text{NO} & \text{NO} & \text{SÍ}\\
+J & \text{NO} & \text{NO} & \text{NO} & \text{SÍ}
+\end{array}
+\]
+\end{example}
+
+\section*{18May26}
+
+\subsection*{Uniones e intersecciones}
+
+\begin{theorem}[Intersección finita y unión finita]
+Sea $(X,d)$ un espacio métrico.
+\begin{enumerate}[label=\alph*.]
+    \item La intersección finita de conjuntos abiertos es abierta.
+    \item La unión finita de conjuntos cerrados es cerrada.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+El inciso (a) se demuestra tomando, para cada punto de la intersección, un radio mínimo entre los radios que lo mantienen dentro de cada abierto.
+El inciso (b) se deduce del inciso (a) tomando complementos.
+\end{proof}
+
+\begin{example}
+Para cada $n\in\mathbb N$, sea
+\[
+G_n=\left(-\frac1n,\frac1n\right).
+\]
+Entonces cada $G_n$ es abierto en $\mathbb R$ y
+\[
+\bigcap_{n=1}^\infty G_n=\{0\},
+\]
+que no es abierto.
+
+Además,
+\[
+G_n^c=\left(-\infty,-\frac1n\right]\cup\left[\frac1n,\infty\right),
+\qquad
+\bigcup_{n=1}^\infty G_n^c=(-\infty,0)\cup(0,\infty),
+\]
+que es abierto pero no cerrado.
+\end{example}
+
+\subsection*{Interior, cerradura y derivado}
+
+\begin{definition}[Conjunto derivado]
+Sea $E\subset X$. Denotamos por $E'$ al conjunto de todos los puntos límite de $E$.
+\end{definition}
+
+\begin{definition}[Interior y cerradura]
+Sea $E\subset X$. El interior de $E$ es
+\[
+E^\circ=\{x\in X\mid \exists r>0 \text{ tal que } N_r(x)\subset E\},
+\]
+y la cerradura de $E$ es
+\[
+\overline E=E\cup E'.
+\]
+\end{definition}
+
+\begin{proposition}[Caracterización del interior]
+El interior $E^\circ$ es el mayor conjunto abierto contenido en $E$.
+Equivalentemente,
+\[
+E^\circ=\bigcup\{A\subset E\mid A \text{ es abierto}\}.
+\]
+\end{proposition}
+
+\begin{proposition}[Caracterización de la cerradura]
+La cerradura $\overline E$ es el menor conjunto cerrado que contiene a $E$.
+\end{proposition}
+
+\begin{example}
+Sea
+\[
+E=\{(x,y)\in\mathbb R^2\mid x^2+y^2\le 1,\ y>0\}.
+\]
+Entonces $E$ no es cerrado ni abierto,
+\[
+E^\circ=\{(x,y)\in\mathbb R^2\mid x^2+y^2<1,\ y>0\},
+\]
+y
+\[
+\overline E=\{(x,y)\in\mathbb R^2\mid x^2+y^2\le 1,\ y\ge 0\}.
+\]
+\end{example}
+
+\subsection*{Subespacios}
+
+\begin{theorem}[Abiertos relativos]
+Sean $(X,d)$ un espacio métrico y $Y\subset X$. Si $E\subset Y$, entonces $E$ es abierto relativo en $Y$ si y solo si existe un abierto $G\subset X$ tal que
+\[
+E=Y\cap G.
+\]
+\end{theorem}
+
+\begin{proof}
+Si $E$ es abierto relativo en $Y$, entonces para cada $x\in E$ existe $r_x>0$ tal que
+\[
+N_{r_x}(x)\cap Y\subset E.
+\]
+Por tanto
+\[
+E=\bigcup_{x\in E}\bigl(N_{r_x}(x)\cap Y\bigr)
+=Y\cap\left(\bigcup_{x\in E}N_{r_x}(x)\right),
+\]
+y la unión de bolas abiertas es abierta en $X$.
+Recíprocamente, si $E=Y\cap G$ con $G$ abierto en $X$, entonces para cada $x\in E$ existe $r>0$ tal que $N_r(x)\subset G$, y así $N_r(x)\cap Y\subset E$.
+\end{proof}
+
+\subsection*{Compacidad}
+
+\begin{definition}[Compacidad]
+Sea $(X,d)$ un espacio métrico y sea $K\subset X$.
+Decimos que $K$ es compacto si toda cubierta abierta de $K$ admite una subcubierta finita.
+\end{definition}
+
+\begin{theorem}[Compacidad y subespacios]
+Sean $(X,d)$ un espacio métrico, $Y\subset X$ y $K\subset Y$.
+Entonces $K$ es compacto en $Y$ si y solo si $K$ es compacto en $X$.
+\end{theorem}
+
+\begin{proof}
+Si $K$ es compacto en $Y$ y $\{W_\alpha\}$ es una cubierta abierta de $K$ en $X$, entonces $\{W_\alpha\cap Y\}$ es una cubierta abierta relativa de $K$ en $Y$.
+Por compacidad de $K$ en $Y$, existe una subcubierta finita, y por tanto también una subcubierta finita de $K$ en $X$.
+
+La recíproca se prueba tomando una cubierta abierta relativa de $K$ en $Y$, escribiendo cada abierto relativo como intersección con un abierto de $X$, y aplicando la compacidad de $K$ en $X$.
+\end{proof}
+
+\begin{theorem}[Los compactos son cerrados]
+Si $(X,d)$ es un espacio métrico y $K\subset X$ es compacto, entonces $K$ es cerrado.
+\end{theorem}
+
+\begin{proof}
+Probamos que $K^c$ es abierto.
+Sea $p\in K^c$.
+Para cada $q\in K$, definimos
+\[
+r_q=\frac12 d(p,q)>0.
+\]
+Entonces
+\[
+N_{r_q}(q)\cap N_{r_q}(p)=\varnothing.
+\]
+La familia $\{N_{r_q}(q)\}_{q\in K}$ cubre a $K$.
+Como $K$ es compacto, existe una subcubierta finita
+\[
+K\subset N_{r_{q_1}}(q_1)\cup\cdots\cup N_{r_{q_n}}(q_n).
+\]
+Tomamos
+\[
+r=\min\{r_{q_1},\dots,r_{q_n}\}.
+\]
+Entonces $N_r(p)\cap K=\varnothing$, y por tanto $K^c$ es abierto.
+\end{proof}
+
+\section*{19May26}
+
+\subsection*{Subconjuntos cerrados de compactos}
+
+\begin{theorem}[Los compactos son cerrados]
+Si $(X,d)$ es un espacio métrico y $K\subset X$ es compacto, entonces $K$ es cerrado.
+\end{theorem}
+
+\begin{proof}
+Probamos que $K^c$ es abierto.
+Sea $p\in K^c$. Para cada $q\in K$, tomamos
+\[
+r_q=\frac12 d(p,q)>0.
+\]
+Entonces
+\[
+N_{r_q}(q)\cap N_{r_q}(p)=\varnothing.
+\]
+La familia $\{N_{r_q}(q)\}_{q\in K}$ cubre a $K$.
+Como $K$ es compacto, existe una subcubierta finita
+\[
+K\subset N_{r_{q_1}}(q_1)\cup\cdots\cup N_{r_{q_n}}(q_n).
+\]
+Tomando
+\[
+r=\min\{r_{q_1},\dots,r_{q_n}\},
+\]
+se obtiene $N_r(p)\cap K=\varnothing$.
+Luego $K^c$ es abierto.
+\end{proof}
+
+\begin{theorem}[Subconjuntos cerrados de compactos]
+Si $K\subset X$ es compacto y $F\subset K$ es cerrado, entonces $F$ es compacto.
+\end{theorem}
+
+\begin{proof}
+Sea $\{V_\alpha\}_{\alpha\in\Lambda}$ una cubierta abierta de $F$ por abiertos de $X$.
+Como $F$ es cerrado, $F^c$ es abierto.
+Entonces
+\[
+\{V_\alpha\}_{\alpha\in\Lambda}\cup\{F^c\}
+\]
+es una cubierta abierta de $K$.
+Por compacidad de $K$, existen $\alpha_1,\dots,\alpha_n\in\Lambda$ tales que
+\[
+K\subset V_{\alpha_1}\cup\cdots\cup V_{\alpha_n}\cup F^c.
+\]
+Como $F\subset K$, se sigue que
+\[
+F\subset V_{\alpha_1}\cup\cdots\cup V_{\alpha_n}.
+\]
+Por tanto, $F$ es compacto.
+\end{proof}
+
+\begin{corollary}
+Si $F\subset X$ es cerrado y $K\subset X$ es compacto, entonces $F\cap K$ es compacto.
+\end{corollary}
+
+\begin{proof}
+El conjunto $F\cap K$ es cerrado en $K$ y está contenido en el compacto $K$.
+Por el teorema anterior, $F\cap K$ es compacto.
+\end{proof}
+
+\subsection*{Intersección finita}
+
+\begin{theorem}[Propiedad de la intersección finita]
+Sea $\{K_\alpha\}_{\alpha\in\Lambda}$ una familia de subconjuntos compactos de $X$.
+Si toda subfamilia finita de $\{K_\alpha\}$ tiene intersección no vacía, entonces
+\[
+\bigcap_{\alpha\in\Lambda}K_\alpha\neq\varnothing.
+\]
+\end{theorem}
+
+\begin{proof}
+Supongamos que
+\[
+\bigcap_{\alpha\in\Lambda}K_\alpha=\varnothing.
+\]
+Fijemos $\alpha_0\in\Lambda$.
+Entonces
+\[
+K_{\alpha_0}\cap\bigcap_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha=\varnothing,
+\]
+de donde
+\[
+K_{\alpha_0}\subset\bigcup_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha^c.
+\]
+Como $K_{\alpha_0}$ es compacto, existe una subcubierta finita
+\[
+K_{\alpha_0}\subset K_{\alpha_1}^c\cup\cdots\cup K_{\alpha_m}^c.
+\]
+Por lo tanto,
+\[
+K_{\alpha_0}\cap K_{\alpha_1}\cap\cdots\cap K_{\alpha_m}=\varnothing,
+\]
+contradicción.
+\end{proof}
+
+\begin{corollary}[Intersección anidada]
+Sea $\{K_n\}_{n=1}^\infty$ una familia de conjuntos compactos no vacíos tal que
+\[
+K_1\supset K_2\supset K_3\supset\cdots.
+\]
+Entonces
+\[
+\bigcap_{n=1}^\infty K_n\neq\varnothing.
+\]
+\end{corollary}
+
+\subsection*{Métricas equivalentes}
+
+\begin{definition}[Métricas equivalentes]
+Sean $d_1$ y $d_2$ dos métricas sobre un mismo conjunto $X$.
+Decimos que $d_1$ y $d_2$ son equivalentes si determinan la misma familia de conjuntos abiertos.
+\end{definition}
+
+\begin{example}
+En $\mathbb R^k$, sea $d_1$ la métrica euclidiana y sea
+\[
+d_2(x,y)=\max\{|x_i-y_i|:i=1,\dots,k\}.
+\]
+Entonces $d_2$ es una métrica.
+Para $k=2$,
+\[
+B^{d_1}_1(0)=\{(x,y)\in\mathbb R^2:\sqrt{x^2+y^2}<1\},
+\]
+y
+\[
+B^{d_2}_1(0)=\{(x,y)\in\mathbb R^2:\max\{|x|,|y|\}<1\}.
+\]
+Estas métricas son equivalentes.
+\end{example}
+
+\section*{21May26}
+
+\subsection*{Compactitud en $\mathbb R$}
+
+\begin{theorem}
+Si $a,b\in\mathbb R$ con $a<b$, entonces $[a,b]$ es compacto.
+\end{theorem}
+
+\begin{proof}
+Sea $\mathcal U$ una cubierta abierta de $[a,b]$.
+Supongamos que no existe subcubierta finita.
+Sea
+\[
+I_0=[a,b].
+\]
+Dividimos $I_0$ en dos mitades y elegimos una de ellas que no admita subcubierta finita; la llamamos $I_1$.
+Repetimos el procedimiento y obtenemos una sucesión decreciente de intervalos cerrados
+\[
+I_0\supset I_1\supset I_2\supset\cdots
+\]
+tal que $\operatorname{long}(I_n)=\dfrac{b-a}{2^n}$ y ninguno de ellos admite subcubierta finita.
+
+Por el teorema de los intervalos encajados, existe
+\[
+x\in \bigcap_{n=0}^\infty I_n.
+\]
+Como $\mathcal U$ cubre a $[a,b]$, existe $U\in\mathcal U$ tal que $x\in U$.
+Al ser $U$ abierto, existe $\varepsilon>0$ con
+\[
+(x-\varepsilon,x+\varepsilon)\subset U.
+\]
+Tomamos $n_0$ tal que
+\[
+\frac{b-a}{2^{n_0}}<\varepsilon.
+\]
+Como $x\in I_{n_0}$ y la longitud de $I_{n_0}$ es menor que $\varepsilon$, se tiene
+\[
+I_{n_0}\subset (x-\varepsilon,x+\varepsilon)\subset U.
+\]
+Esto da una subcubierta finita de $I_{n_0}$, contradicción.
+Luego $[a,b]$ es compacto.
+\end{proof}
+
+\begin{corollary}
+Un subconjunto $K\subset\mathbb R$ es compacto si y solo si es cerrado y acotado.
+\end{corollary}
+
+\begin{proof}
+Si $K$ es compacto, entonces es cerrado. Además, la familia
+\[
+\{(x-1,x+1)\mid x\in K\}
+\]
+cubre a $K$, y por compacidad se extrae una subcubierta finita; de ahí se deduce que $K$ es acotado.
+
+Recíprocamente, si $K$ es cerrado y acotado, entonces existe $a<b$ tal que $K\subset[a,b]$.
+Como $[a,b]$ es compacto y $K$ es cerrado en $\mathbb R$, resulta que $K$ es compacto.
+\end{proof}
+
+\subsection*{Métricas equivalentes}
+
+\begin{proposition}[Norma del supremo y norma euclidiana en $\mathbb R^n$]
+Sea $n\in\mathbb N$ fijo, y sean $x,y\in\mathbb R^n$.
+Entonces
+\[
+\max_{1\le i\le n}|x_i-y_i|
+\le
+\left(\sum_{i=1}^n(x_i-y_i)^2\right)^{1/2}
+\le
+\sqrt n\,\max_{1\le i\le n}|x_i-y_i|.
+\]
+\end{proposition}
+
+\begin{proof}
+Sea
+\[
+m=\max_{1\le i\le n}|x_i-y_i|.
+\]
+Entonces
+\[
+m^2=\max_{1\le i\le n}|x_i-y_i|^2
+\le \sum_{i=1}^n(x_i-y_i)^2
+\le n\,m^2.
+\]
+Tomando raíz cuadrada se obtiene la desigualdad.
+\end{proof}
+
+\begin{theorem}[Criterio de equivalencia]
+Sea $(X,d_1)$ un espacio métrico y sea $d_2$ otra métrica sobre $X$.
+Si existen constantes $c,C>0$ tales que
+\[
+c\,d_1(x,y)\le d_2(x,y)\le C\,d_1(x,y),\qquad \forall x,y\in X,
+\]
+entonces $d_1$ y $d_2$ son equivalentes.
+\end{theorem}
+
+\begin{proof}
+Sea $A\subset X$ abierto en $(X,d_1)$ y sea $a\in A$.
+Entonces existe $r>0$ tal que
+\[
+N_r^{d_1}(a)\subset A.
+\]
+Como
+\[
+N_{cr}^{d_2}(a)\subset N_r^{d_1}(a),
+\]
+se tiene $N_{cr}^{d_2}(a)\subset A$; luego $A$ es abierto en $(X,d_2)$.
+
+Recíprocamente, si $A$ es abierto en $(X,d_2)$ y $a\in A$, existe $r>0$ tal que
+\[
+N_r^{d_2}(a)\subset A.
+\]
+Pero
+\[
+N_{r/C}^{d_1}(a)\subset N_r^{d_2}(a),
+\]
+así que $A$ es abierto en $(X,d_1)$.
+\end{proof}
+
+\begin{proposition}[Métrica truncada]
+Sea $(X,d_1)$ un espacio métrico y definamos
+\[
+d_2(x,y)=\frac{d_1(x,y)}{1+d_1(x,y)}.
+\]
+Entonces $d_2$ es una métrica.
+\end{proposition}
+
+\begin{proof}
+La positividad y la simetría son inmediatas.
+Para la desigualdad del triángulo, se observa que la función
+\[
+t\longmapsto \frac{t}{1+t}
+\]
+es creciente en $\mathbb R_+$ y que, para $b>0$ fijo,
+\[
+\frac{b+c}{1+b+c}\le \frac b{1+b}+\frac c{1+c},\qquad c\ge 0.
+\]
+Aplicando la desigualdad del triángulo para $d_1$ y esta estimación, se obtiene
+\[
+d_2(x,y)\le d_2(x,z)+d_2(z,y).
+\]
+\end{proof}
+
+\subsection*{Densidad y separabilidad}
+
+\begin{definition}[Denso]
+Sea $(X,d)$ un espacio métrico y sea $D\subset X$.
+Decimos que $D$ es denso si
+\[
+\overline D=X.
+\]
+\end{definition}
+
+\begin{definition}[Separable]
+Un espacio métrico $(X,d)$ es separable si existe $D\subset X$ tal que $D$ es denso y es numerable.
+\end{definition}
+
+\begin{example}
+Los conjuntos
+\[
+E_1=\left\{\frac1n:n\in\mathbb N\right\}\cup\{0\},\qquad
+E_2=\left\{2+\frac1n:n\in\mathbb N\right\}\cup\{2\},
+\]
+\[
+E_3=\left\{10+\frac1n:n\in\mathbb N\right\}\cup\{10\}
+\]
+sirven como ejemplos de conjuntos con punto límite aislado visible en la clausura.
+
+Para cada $j\in\mathbb N$, consideremos
+\[
+F_j=\left\{\frac1j+\frac1n:n=1,2,\dots\right\}\cup\left\{\frac1j\right\},
+\qquad
+F_j'=\left\{\frac1j\right\}.
+\]
+La unión numerable
+\[
+\bigcup_{j=1}^\infty F_j
+\]
+ejemplifica una construcción de conjunto numerable.
+\end{example}
+
+\section*{25May26}
+
+\subsection*{Recordatorio de métricas equivalentes}
+
+\begin{remark}
+En las primeras fotos del día se retoma la métrica truncada
+\[
+d_2(x,y)=\frac{d_1(x,y)}{1+d_1(x,y)},
+\]
+ya tratada en la sesión anterior, y el criterio de equivalencia de métricas.
+\end{remark}
+
+\subsection*{Compacidad de una celda}
+
+\begin{theorem}[Rudin 2.40]
+Toda celda-$d$ de la forma
+\[
+[a_1,b_1]\times\cdots\times[a_d,b_d]\subset\mathbb R^d
+\]
+es compacta.
+\end{theorem}
+
+\begin{proof}
+Supongamos que una cubierta abierta de la celda no admite subcubierta finita.
+Dividimos la celda en $2^d$ subceldas cerradas y elegimos una de ellas que tampoco admita subcubierta finita.
+Iterando el procedimiento obtenemos una sucesión decreciente de celdas cerradas
+\[
+J_0\supset J_1\supset J_2\supset\cdots
+\]
+con lados que tienden a $0$.
+Por el teorema de los intervalos encajados, existe un punto
+\[
+x^\ast\in\bigcap_{n=0}^\infty J_n.
+\]
+Como la cubierta original es abierta, hay un elemento de la cubierta que contiene a $x^\ast$ y, por tanto, contiene a $J_n$ para $n$ suficientemente grande.
+Esto contradice la elección de $J_n$.
+Luego la celda es compacta.
+\end{proof}
+
+\subsection*{Heine-Borel}
+
+\begin{theorem}[Rudin 2.41]
+Sea $K\subset\mathbb R^d$.
+Entonces son equivalentes:
+\begin{enumerate}[label=\alph*)]
+    \item $K$ es cerrado y acotado.
+    \item $K$ es compacto.
+    \item Todo subconjunto infinito de $K$ tiene un punto límite en $K$.
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+El hecho $a)\Rightarrow b)$ se obtiene porque todo conjunto cerrado y acotado cabe en una celda-$d$, y esa celda es compacta; por tanto, $K$ es cerrado en un compacto.
+
+El hecho $b)\Rightarrow c)$ es el Teorema 2.37 de Rudin: todo subconjunto infinito de un compacto tiene un punto límite en el compacto.
+
+Falta probar $c)\Rightarrow a)$.
+Si $K$ no es acotado, podemos escoger una sucesión $(x_n)\subset K$ tal que
+\[
+\|x_n\|>n,\qquad n=1,2,\dots
+\]
+Entonces $S=\{x_1,x_2,\dots\}$ es infinito, pero no puede tener punto límite: si $y\in\mathbb R^d$ y $r>0$, para $n$ suficientemente grande se tiene
+\[
+\|x_n-y\|\ge \|x_n\|-\|y\|>r,
+\]
+de modo que solo finitos términos de $S$ pueden caer en $N_r(y)$.
+Contradicción.
+Así, $K$ es acotado.
+
+Si $K$ no es cerrado, existe $x_0\in\overline K\setminus K$.
+Entonces hay una sucesión $(x_n)\subset K$ con $x_n\to x_0$.
+El conjunto $S=\{x_1,x_2,\dots\}$ es infinito y su único punto límite es $x_0\notin K$, contradiciendo $c)$.
+Luego $K$ es cerrado.
+\end{proof}
+
+\section*{28May26}
+
+\subsection*{Bolas abiertas y cerradas}
+
+\begin{lemma}
+Sea $(X,d)$ un espacio métrico. Sean $a\in X$ y $r>0$.
+Definimos
+\[
+V_r(a):=\{x\in X\mid d(x,a)\le r\},
+\qquad
+N_r(a):=\{x\in X\mid d(x,a)<r\}.
+\]
+Entonces:
+\begin{enumerate}[label=\roman*)]
+    \item $V_r(a)$ es cerrado.
+    \item $N_r(a)\subset V_r(a)$, aunque la contención puede ser estricta.
+    \item Si $X=\mathbb R^k$, entonces $\overline{N_r(a)}=V_r(a)$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Para (i), probamos que $(V_r(a))^c$ es abierto.
+Sea $b\in (V_r(a))^c$, de modo que $d(a,b)>r$.
+Tomamos
+\[
+d_0=\frac12\bigl(d(a,b)-r\bigr)>0.
+\]
+Si $x\in N_{d_0}(b)$, entonces
+\[
+d(a,x)\ge d(a,b)-d(b,x)>r,
+\]
+de donde $x\notin V_r(a)$.
+Así $N_{d_0}(b)\subset (V_r(a))^c$.
+
+La afirmación (ii) es inmediata.
+
+Para (iii), sea $x\in V_r(a)$ y considere el segmento
+\[
+x_\lambda=(1-\lambda)a+\lambda x,\qquad 0\le\lambda<1.
+\]
+Entonces
+\[
+d(a,x_\lambda)=\|a-((1-\lambda)a+\lambda x)\|
+=\|\lambda(a-x)\|
+=\lambda\|a-x\|
+\le \lambda r<r,
+\]
+por lo que $x_\lambda\in N_r(a)$ para todo $0\le\lambda<1$.
+Como $x_\lambda\to x$ cuando $\lambda\to 1$, se concluye que $x\in\overline{N_r(a)}$.
+\end{proof}
+
+\begin{remark}
+En la métrica discreta puede ocurrir que $N_r(a)\subsetneq V_r(a)$.
+\end{remark}
+
+\subsection*{Weierstrass}
+
+\begin{corollary}[Weierstrass]
+Todo subconjunto infinito y acotado de $\mathbb R^d$ tiene un punto límite en $\mathbb R^d$.
+\end{corollary}
+
+\begin{proof}
+Sea $T\subset\mathbb R^d$ infinito y acotado.
+Entonces $T$ cabe en una celda-$d$ compacta
+\[
+[a_1,b_1]\times\cdots\times[a_d,b_d].
+\]
+Por el Teorema 2.37 de Rudin, todo subconjunto infinito de un compacto tiene un punto límite en el compacto.
+Luego $T$ tiene un punto límite en $\mathbb R^d$.
+\end{proof}
+
+\subsection*{Normas en $\mathbb R^k$}
+
+\begin{remark}
+En el pizarrón aparecen intercambiados los subíndices de dos normas; aquí se normaliza la convención usual.
+\end{remark}
+
+\begin{definition}[Norma euclidiana y norma del supremo]
+Para $x=(x_1,\dots,x_k)\in\mathbb R^k$ definimos
+\[
+\|x\|_2=\left(\sum_{i=1}^k x_i^2\right)^{1/2},
+\qquad
+\|x\|_\infty=\max\{|x_1|,\dots,|x_k|\}.
+\]
+Para $a\in\mathbb R^k$,
+\[
+\|x-a\|_2=\left(\sum_{i=1}^k(x_i-a_i)^2\right)^{1/2},
+\qquad
+\|x-a\|_\infty=\max\{|x_i-a_i|:i=1,\dots,k\}.
+\]
+\end{definition}
+
+\begin{exercise}
+Verificar que la norma del supremo satisface:
+\begin{enumerate}[label=\roman*)]
+    \item $\|\alpha x\|_\infty=|\alpha|\,\|x\|_\infty$ para todo $x\in\mathbb R^k$ y todo $\alpha\in\mathbb R$.
+    \item $\|x\|_\infty=0$ si, y solo si, $x=0$.
+    \item $\|x+y\|_\infty\le \|x\|_\infty+\|y\|_\infty$.
+\end{enumerate}
+\end{exercise}
+
+\end{document}

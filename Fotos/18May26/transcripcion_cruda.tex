@@ -1,0 +1,161 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 18May26}
+\end{center}
+
+\section*{Foto 1}
+
+Fecha para el primer examen parcial: jueves de semana 5.
+
+1er lista de ejercicios: capítulo II de Rudin, del 1 al 19.
+
+\textit{Teorema.}
+\begin{enumerate}[label=\alph*)]
+    \item Intersección finita de conjuntos abiertos es un conjunto abierto.
+    \item Unión finita de conjuntos cerrados es un conjunto cerrado.
+\end{enumerate}
+
+\textit{Ejemplo.}
+\begin{enumerate}[label=\alph*)]
+    \item Intersección infinita de abiertos no es un conjunto abierto.
+    \item Unión infinita de conjuntos cerrados no es cerrada.
+\end{enumerate}
+
+\[
+\forall n\in\mathbb N,\quad G_n=\left(-\frac1n,\frac1n\right)
+\]
+es abierto en $\mathbb R$ y
+\[
+\bigcap_{n=1}^{\infty}G_n=\{0\}.
+\]
+
+\[
+G_n^c=\left(-\infty,-\frac1n\right]\cup\left[\frac1n,\infty\right),
+\qquad
+\bigcup_{n=1}^{\infty}G_n^c=(-\infty,0)\cup(0,\infty),
+\]
+que es abierto pero no cerrado.
+
+\section*{Fotos 2--5}
+
+Definiciones sobre interior, cerradura y conjunto derivado.
+
+Sea $(X,d)$ un espacio métrico y sea $E\subset X$.
+
+\[
+E'=\{x\in X\mid x \text{ es punto límite de }E\}.
+\]
+
+En la definición anterior, la cerradura de $E$ es
+\[
+\overline E:=E\cup E'.
+\]
+
+Consecuencia de la proposición:
+\[
+\bigcup_{A\in\mathcal D}A=E^\circ,
+\]
+donde $\mathcal D=\{A\subset E\mid A \text{ es abierto}\}$.
+
+\section*{Fotos 6--10}
+
+Ejemplo:
+\[
+E=\{(x,y)\in\mathbb R^2\mid x^2+y^2\le 1,\ y>0\}.
+\]
+El conjunto $E$ no es cerrado ni es abierto.
+
+\[
+E^\circ=\{(x,y)\in\mathbb R^2\mid x^2+y^2<1,\ y>0\}.
+\]
+
+\[
+\overline E=\{(x,y)\in\mathbb R^2\mid x^2+y^2\le 1,\ y\ge 0\}.
+\]
+
+\[
+E'=\overline E.
+\]
+
+\section*{Fotos 11--14}
+
+Teorema: Sea $(X,d)$, sea $Y\subset X$ y $E\subset Y$.
+Entonces $E$ es abierto relativo en $Y$ si y solo si
+\[
+E=Y\cap G
+\]
+con $G$ un abierto en $X$.
+
+\section*{Fotos 15--19}
+
+Sea $E\subset X$.
+Si $y\in E$, entonces $y$ no es cota superior de $E$.
+Si $y\notin E$ y $y$ es cota superior de $E$, entonces para todo $\varepsilon>0$ existe $x\in E$ tal que
+\[
+y-\varepsilon<x\le y.
+\]
+Si además $y\notin E$, entonces
+\[
+y-\varepsilon<x<y.
+\]
+Por tanto
+\[
+N_\varepsilon(y)\cap(E\setminus\{y\})\neq\varnothing,
+\]
+y entonces $y\in E'$.
+
+Algo similar ocurre con el infinito de un subconjunto en $\mathbb R$ no vacío y acotado inferiormente.
+
+\section*{Fotos 20--23}
+
+\textit{Definición.} Sea $(X,d)$ un espacio métrico y sean $E,Y\subset X$ tales que $E\subset Y\subset X$.
+Diremos que $E$ es abierto relativo en $Y$ si para todo $y\in E$ existe $r>0$ tal que
+\[
+N_r(y)\cap Y\subset E.
+\]
+
+\textit{Teorema.} Sea $(X,d)$ un espacio métrico y sea $Y\subset X$.
+Entonces $E$ es abierto relativo en $Y$ si y solo si $E=Y\cap G$ con $G$ abierto en $X$.
+
+\section*{Fotos 24--25}
+
+\textit{Teorema.} Si $(X,d)$ es un espacio métrico y $K\subset X$ es compacto, entonces $K$ es cerrado.
+
+Demostración: probaremos que $K^c$ es abierto.
+
+Sea $p\in K^c$. Para cada $q\in K$, sea
+\[
+r_q=\frac12 d(p,q)>0.
+\]
+Entonces
+\[
+N_{r_q}(q)\cap N_{r_q}(p)=\varnothing.
+\]
+Como $K$ es compacto en $(X,d)$, existe una subcubierta finita de $\{N_{r_q}(q)\}_{q\in K}$.
+Si $q_1,\dots,q_n\in K$, entonces
+\[
+K\subset N_{r_{q_1}}(q_1)\cup\cdots\cup N_{r_{q_n}}(q_n).
+\]
+Tomando
+\[
+r=\min\{r_{q_1},\dots,r_{q_n}\},
+\]
+se obtiene
+\[
+N_r(p)\cap K=\varnothing.
+\]
+Por tanto $K^c$ es abierto y $K$ es cerrado.
+
+\end{document}

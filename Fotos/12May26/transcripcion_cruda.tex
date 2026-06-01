@@ -1,0 +1,351 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\newcommand{\dudoso}[1]{\textsf{#1}}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 12May26}
+\end{center}
+
+\section*{Foto 1}
+
+\textit{Ejemplo.} Sean $a,b\in\mathbb R$, $a<b$.
+
+\[
+C[a,b]=\{f:[a,b]\to\mathbb R \mid f \text{ es continua}\}
+\]
+
+Sea
+\[
+d:C[a,b]\times C[a,b]\to [0,\infty)
+\]
+\[
+d(f,g)=\sup\{\,|f(x)-g(x)| \mid x\in[a,b]\,\}.
+\]
+
+Afirmación: $d$ es métrica en $C[a,b]$.
+
+\textit{Dem.}
+\begin{enumerate}[label=\arabic*)]
+    \item Positividad.
+    \item Simetría.
+    \item Desigualdad del triángulo.
+\end{enumerate}
+
+\section*{Foto 2}
+
+Si $f,g\in C[a,b]$, $f\neq g$, entonces $\exists x_0\in[a,b]$ tal que
+\[
+f(x_0)\neq g(x_0).
+\]
+Como $f$ y $g$ son continuas, existe un intervalo $U$ en $[a,b]$ tal que
+\[
+x_0\in U
+\qquad \text{y}\qquad
+f(x)\neq g(x),\ \forall x\in U.
+\]
+Entonces
+\[
+d(f,g)=\sup\{\,|f(x)-g(x)|\mid x\in[a,b]\,\}
+\]
+\[
+\ge \sup\{\,|f(x)-g(x)|\mid x\in U\,\}
+\]
+\[
+\ge |f(x_0)-g(x_0)|>0.
+\]
+
+Si $f=g$ entonces
+\[
+d(f,g)=d(f,f)=\sup\{\,|f(x)-g(x)|\mid x\in[a,b]\,\}=0.
+\]
+
+\section*{Foto 3}
+
+\[
+|f(x)-g(x)|=|g(x)-f(x)|\qquad \forall x\in[a,b].
+\]
+\[
+\therefore\ d(f,g)=d(g,f).
+\]
+
+Observemos que, por la desigualdad del triángulo para $\mathbb R$,
+\[
+|f(x)-g(x)|\le |f(x)-h(x)|+|h(x)-g(x)|
+\qquad \forall x\in[a,b].
+\]
+Tomando supremo sobre $x\in[a,b]$:
+\[
+d(f,g)\le \sup\{|f(x)-g(x)|:x\in[a,b]\}.
+\]
+
+\section*{Foto 4}
+
+\[
+d(f,g)\le \sup\{|f(x)-h(x)|:x\in[a,b]\}+\sup\{|h(x)-g(x)|:x\in[a,b]\}
+\]
+\[
+=d(f,h)+d(h,g).
+\]
+
+\textit{Ejercicio:} Encontrar un ejemplo en donde la desigualdad señalada con $?$ es estricta.
+
+\section*{Foto 5}
+
+\[
+d(f,g)\le d(f,h)+d(h,g).
+\]
+
+\textit{Ejercicio:} Encontrar un ejemplo en donde la desigualdad señalada con $?$ es estricta.
+
+\section*{Foto 6}
+
+\[
+(C[a,b],d)\text{ es espacio métrico.}
+\]
+
+\textit{Ejemplo.} Sea $A$ un conjunto cualquiera. Sea $(X,d)$ un espacio métrico.
+Sea
+\[
+\mathcal B(A,X)=\{f:A\to X\mid f \text{ es función acotada}\}.
+\]
+Sea
+\[
+D:\mathcal B(A,X)\times \mathcal B(A,X)\to [0,\infty)
+\]
+\[
+D(f,g)=\sup\{d(f(x),g(x))\mid x\in A\}.
+\]
+Donde por función acotada, lo siguiente:
+
+\section*{Foto 7}
+
+Si $g\in X$ y $f:A\to X$ es una función, dada por
+\[
+\gamma(a)=d(f(a),g),
+\]
+entonces $\gamma$ es acotada.
+
+Observemos lo siguiente:
+
+\[
+\gamma:A\to\mathbb R,
+\qquad
+\gamma(x)=d(f(x),g).
+\]
+Es función acotada.
+
+Demostración: ejercicio, usar la desigualdad del triángulo.
+
+\section*{Foto 8}
+
+\textit{Afirmación:} $D$ es una métrica en el espacio $\mathcal B(A,X)$.
+
+\begin{enumerate}[label=\arabic*)]
+    \item Positividad. Si $f,g\in\mathcal B(A,X)$, $f\neq g$, $\therefore \exists x_0\in A$ tal que $f(x_0)\neq g(x_0)$.
+\end{enumerate}
+
+\section*{Foto 9}
+
+\[
+D(f,g)=\sup\{d(f(x),g(x))\mid x\in A\}
+\]
+\[
+\ge d(f(x_0),g(x_0))>0.
+\]
+
+Si $f=g$ entonces
+\[
+D(f,f)=\sup\{d(f(x),f(x))\mid x\in A\}=0.
+\]
+
+\begin{enumerate}[label=\arabic*)]
+    \setcounter{enumi}{1}
+    \item Simetría.
+\end{enumerate}
+
+\[
+d(f(x),g(x))=d(g(x),f(x)),\ \forall x\in A.
+\]
+\[
+\therefore D(f,g)=D(g,f).
+\]
+
+\begin{enumerate}[label=\arabic*)]
+    \setcounter{enumi}{2}
+    \item Desigualdad del triángulo. Sean $f,g,h\in\mathcal B(A,X)$.
+\end{enumerate}
+
+\[
+D(f,g)\le D(f,h)+D(h,g).
+\]
+
+\section*{Foto 10}
+
+\[
+d(f(x),g(x))\le d(f(x),h(x))+d(h(x),g(x))
+\]
+por la desigualdad del triángulo en $(X,d)$.
+
+\[
+D(f,g)=\sup\{d(f(x),g(x))\mid x\in A\}
+\]
+\[
+\le \sup\{d(f(x),h(x))\mid x\in A\}+\sup\{d(h(x),g(x))\mid x\in A\}.
+\]
+La desigualdad (?) se da por las mismas razones que en $C[a,b]$.
+
+\section*{Foto 11}
+
+\textit{Ejemplo.} Sea $A=\{1,2\}$, $X=\mathbb R$.
+\[
+\mathcal B(A,X)=\{f:A\to X\mid f \text{ es acotada}\}.
+\]
+Acotado en el sentido de hace un momento.
+
+\textit{Afirmación:} $\mathcal B(A,X)$ = todas las funciones de $A$ en $X$.
+Para cualquier $f:A\to\mathbb R$, es acotada porque
+\[
+f(A)=\{f(1),f(2)\}\subset \mathbb R.
+\]
+Hay que probar que $f$ es función acotada según \dots
+
+\section*{Foto 12}
+
+Según la definición de función acotada toma valores en un espacio métrico acotado.
+
+\[
+\exists g\in \overline X \text{ tal que } \gamma(a)=d(f(a),g).
+\]
+
+\section*{Foto 13}
+
+Retomamos el ejemplo:
+\[
+A=\{1,2\},\qquad X=\mathbb R,
+\]
+\[
+d \text{ es la métrica usual en } \mathbb R.
+\]
+\[
+\mathcal B(A,X)=\{f:A\to\mathbb R\}=\{(f(1),f(2))\mid f:A\to\mathbb R\}=(\mathbb R)^2.
+\]
+
+\[
+\text{¿Cómo se ve la métrica }D?
+\]
+\[
+D(f,g)=\sup\{d(f(x),g(x))\mid x\in\{1,2\}\}.
+\]
+
+\section*{Foto 14}
+
+\[
+D(f,g)=\sup\{|f(1)-g(1)|,\ |f(2)-g(2)|\}.
+\]
+\[
+=\max\{|f(1)-g(1)|,\ |f(2)-g(2)|\}.
+\]
+
+\[
+D\bigl((f(1),f(2)),(g(1),g(2))\bigr).
+\]
+La métrica usual en $\mathbb R^2$:
+\[
+\bigl\|(f(1),f(2))-(g(1),g(2))\bigr\|_{\mathbb R^2}
+\]
+\[
+=\sqrt{(f(1)-g(1))^2+(f(2)-g(2))^2}.
+\]
+
+\section*{Foto 15}
+
+\textit{Definición.} Sea $(X,d)$ espacio métrico. Sean $p,q\in X$. Sea $r\in\mathbb R$, $r>0$.
+
+\begin{enumerate}[label=\alph*)]
+    \item Sea $p\in X$. Una vecindad o un entorno de $p$, de radio $r>0$, es el siguiente conjunto:
+    \[
+    N_r(p)=\{q\in X\mid d(q,p)<r\}.
+    \]
+    \item Sea $E\subset X$. Sea $p\in X$. Decimos que $p$ es punto límite de $E$.
+\end{enumerate}
+
+\section*{Foto 16}
+
+Toda vecindad de $p$ contiene elementos de $E$ que no son $p$.
+Es decir,
+\[
+\forall r>0,\quad N_r(p)\cap(E\setminus\{p\})\neq \varnothing.
+\]
+
+\textit{Ejemplo.} $X=\mathbb R$, $E=(0,1]\cup\{2\}$.
+El $0$ y $1$ son puntos límite de $E$.
+
+\section*{Foto 17}
+
+\[
+N_r(0)=\{q\in\mathbb R\mid |q|<r\}=(-r,r).
+\]
+\[
+N_r\!\left(\tfrac12\right)=\{q\in\mathbb R\mid |q-\tfrac12|<r\}=
+\left(\tfrac12-r,\tfrac12+r\right).
+\]
+
+\section*{Foto 18}
+
+\[
+\text{P.D. } \exists r>0\quad N_r(2)\cap (E\setminus\{2\})=\varnothing.
+\]
+
+\[
+N_r(2)\cap E=\varnothing.
+\]
+
+\section*{Foto 19}
+
+\textit{Continuamos con las definiciones.}
+
+\begin{enumerate}[label=\alph*)]
+    \item Si $p\in E$ y $p$ no es punto límite de $E$, decimos que $p$ es punto aislado de $E$.
+\end{enumerate}
+
+\textit{Ejemplo.} $X=\mathbb R$, $E=(0,1]\cup\{2\}$.
+El $2$ es punto aislado de $E$.
+El $2$ no es punto límite de $(0,1]$.
+
+\section*{Fotos 20--23}
+
+Continuamos con las definiciones:
+
+\begin{enumerate}[label=\alph*)]
+    \item $E\subset X$ es cerrado si contiene a todos sus puntos límite.
+    \item Sea $p\in X$. Decimos que $p$ es punto interior de $E$ si $\exists r>0$ tal que $N_r(p)\subset E$.
+    \item $E$ es conjunto abierto si todos sus elementos son puntos interiores.
+    \item $E^c=\{x\in X\mid x\notin E\}$.
+    \item $E\subset X$ se dice que es un conjunto perfecto si cumple con:
+    \begin{enumerate}[label=\arabic*)]
+        \item es cerrado;
+        \item todos sus elementos son puntos límite de $E$.
+    \end{enumerate}
+    \item $E\subset X$ es conjunto acotado si $\exists M>0$ y $\exists q\in X$ tal que
+    \[
+    d(p,q)<M\qquad \forall p\in E.
+    \]
+    \item $E$ es denso en $X$ si todo $p\in X$ es punto límite de $E$.
+\end{enumerate}
+
+\textit{Ejemplo.} $X=\mathbb R$, $E=(0,1]\cup\{2\}$.
+El $2$ es punto aislado de $E$.
+El $2$ no es punto límite de $(0,1]$.
+
+\end{document}

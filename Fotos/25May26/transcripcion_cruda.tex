@@ -1,0 +1,196 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 25May26}
+\end{center}
+
+\section*{Fotos 1--2}
+
+\textit{Teo.} Sea $(X,d_1)$ un espacio métrico. Sea
+\[
+d_2:X\times X\to[0,\infty),\qquad d_2(x,y)=\frac{d_1(x,y)}{1+d_1(x,y)}.
+\]
+Entonces:
+\begin{enumerate}[label=\alph*)]
+    \item $d_2$ es métrica.
+    \item $d_1$ y $d_2$ son equivalentes, es decir, tienen los mismos conjuntos abiertos.
+\end{enumerate}
+
+\textit{Dem.} a) Ya lo sabemos. b) Solo probaremos b).
+Sea
+\[
+\mathcal F_i=\{A\subset X\mid A \text{ es abierto en }(X,d_i)\},\qquad i=1,2.
+\]
+P.D. $\mathcal F_1=\mathcal F_2$.
+
+Primero probaremos que $\mathcal F_2\subset \mathcal F_1$.
+Usaremos que $d_2(x,y)\le d_1(x,y)$.
+Sea $A\in\mathcal F_2$. Sea $a\in A$, $\exists r>0$ t.q.
+\[
+N_r^{d_2}(a)\subset A.
+\]
+Si $b\in N_r^{d_1}(a)$, entonces
+\[
+d_2(a,b)\le d_1(a,b)<r,
+\]
+luego $b\in N_r^{d_2}(a)$.
+Así,
+\[
+N_r^{d_1}(a)\subset N_r^{d_2}(a)\subset A,
+\]
+de modo que $A\in\mathcal F_1$.
+
+Recíprocamente, sea $A\in\mathcal F_1$.
+Sea $a\in A$, $\exists r>0$ t.q.
+\[
+N_r^{d_1}(a)\subset A.
+\]
+Sea $f:[0,1)\to[0,\infty)$, $f(z)=\dfrac{z}{1-z}$.
+Observemos que
+\[
+f(d_2(x,y))=\frac{d_2(x,y)}{1-d_2(x,y)}=d_1(x,y),
+\]
+porque $0\le d_2(x,y)<1$.
+Además, $f$ es continua en $0$.
+Entonces existe $\delta_r>0$ tal que
+\[
+0\le z<\delta_r \implies 0\le f(z)<r.
+\]
+Si $b\in N_{\delta_r}^{d_2}(a)$, entonces
+\[
+0\le d_2(a,b)<\delta_r
+\]
+y por tanto
+\[
+0\le f(d_2(a,b))=d_1(a,b)<r,
+\]
+así que $b\in N_r^{d_1}(a)\subset A$.
+Luego
+\[
+N_{\delta_r}^{d_2}(a)\subset A,
+\]
+y $A\in\mathcal F_2$.
+Concluimos que $\mathcal F_1=\mathcal F_2$.
+
+\section*{Fotos 3--10}
+
+\textit{Teo.} Sean $a,b,c,d\in\mathbb R$ tales que $a<b$ y $c<d$.
+Sea
+\[
+J_0=[a,b]\times[c,d]\subset\mathbb R^2.
+\]
+Entonces $J_0$ es compacto.
+
+\textit{Dem.} Supóngase que $J_0$ no es compacto.
+Por tanto, existe una cubierta abierta $\mathcal U=\{U_\alpha\}_{\alpha\in\Lambda}$ de $J_0$ de la cual no se puede extraer una subcubierta finita.
+
+Dividimos $J_0$ en cuatro rectángulos cerrados de área igual a $\frac14$ del área de $J_0$:
+\[
+[a,m_0]\times[c,n_0],\quad [m_0,b]\times[c,n_0],\quad [a,m_0]\times[n_0,d],\quad [m_0,b]\times[n_0,d],
+\]
+donde
+\[
+m_0=\frac{a+b}{2},\qquad n_0=\frac{c+d}{2}.
+\]
+Al menos uno de ellos no puede cubrirse con un número finito de elementos de $\mathcal U$; lo denotamos por
+\[
+J_1=[m_1,n_1]\times[\sigma_1,\rho_1]\subset J_0.
+\]
+Repetimos el procedimiento y obtenemos una sucesión decreciente de rectángulos cerrados
+\[
+J_0\supset J_1\supset J_2\supset\cdots
+\]
+tal que cada $J_k$ no puede cubrirse con una subfamilia finita de $\mathcal U$.
+
+Escribiendo
+\[
+J_k=[m_k,n_k]\times[\sigma_k,\rho_k],
+\]
+se tiene
+\[
+m_k\le m_{k+1}\le x\le n_{k+1}\le n_k,\qquad
+\sigma_k\le \sigma_{k+1}\le y\le \rho_{k+1}\le \rho_k.
+\]
+En particular,
+\[
+\lim_{k\to\infty}(n_k-m_k)=0,\qquad \lim_{k\to\infty}(\rho_k-\sigma_k)=0.
+\]
+Luego existe un único punto
+\[
+(x,y)\in\bigcap_{k=0}^\infty J_k.
+\]
+
+Como $\mathcal U$ cubre a $J_0$, existe $U_{\alpha_0}\in\mathcal U$ tal que $(x,y)\in U_{\alpha_0}$.
+Puesto que $U_{\alpha_0}$ es abierto, existe $\varepsilon>0$ tal que
+\[
+N_\varepsilon^{d_2}((x,y))\subset U_{\alpha_0},
+\]
+donde
+\[
+d_2((x,y),(u,v))=\max\{|x-u|,|y-v|\}.
+\]
+Entonces, para $k$ grande, $J_k\subset N_\varepsilon^{d_2}((x,y))\subset U_{\alpha_0}$, contradicción.
+Por tanto, $J_0$ es compacto.
+
+\section*{Fotos 11--21}
+
+\textit{Teo.} Sea $K\subset\mathbb R^d$. Entonces son equivalentes:
+\begin{enumerate}[label=\alph*)]
+    \item $K$ es cerrado y acotado.
+    \item $K$ es compacto.
+    \item Todo subconjunto infinito de $K$ tiene punto límite en $K$.
+\end{enumerate}
+
+\textit{Dem.} Esquema: $a)\Rightarrow b)\Rightarrow c)\Rightarrow a)$.
+
+\textit{$a)\Rightarrow b)$.} Supongamos que $K$ es cerrado y acotado.
+Entonces $K$ cabe en una celda-$d$,
+\[
+K\subset [a_1,b_1]\times\cdots\times[a_d,b_d],
+\]
+con $a_i<b_i$.
+Ya sabemos que dicha celda es compacta.
+Como $K$ es cerrado en un compacto, resulta que $K$ es compacto.
+
+\textit{$b)\Rightarrow c)$.} Sea $L\subset K$ infinito.
+Por compacidad de $K$, todo subconjunto infinito de $K$ tiene punto límite en $K$.
+Luego $L$ tiene punto límite en $K$.
+
+\textit{$c)\Rightarrow a)$.} Falta probar que $K$ es cerrado y acotado.
+Si $K$ no es acotado, entonces para cada $n\in\mathbb N$ existe $x_n\in K$ tal que
+\[
+\|x_n\|=d(x_n,0)>n.
+\]
+Sea
+\[
+S=\{x_1,x_2,\dots\}\subset K.
+\]
+El conjunto $S$ es infinito.
+Si $y\in S'$, entonces para todo $N\in\mathbb N$ existe $z\in S\setminus\{y\}$ tal que
+\[
+d(z,y)<\frac1N.
+\]
+Eso fuerza que haya elementos de $S$ arbitrariamente cercanos a $y$.
+Pero como $\|x_n\|>n$, la sucesión no puede acumularse en un punto de $\mathbb R^d$.
+Por tanto $K$ debe ser acotado.
+
+Si $K$ no es cerrado, existe $x_0\in \overline K\setminus K$.
+Entonces hay una sucesión $(x_n)\subset K$ con $x_n\to x_0$.
+El conjunto $S=\{x_1,x_2,\dots\}$ es infinito y su único punto límite es $x_0$.
+Como $x_0\notin K$, esto contradice $c)$.
+Luego $K$ es cerrado.
+
+Concluimos que $K$ es cerrado y acotado.
+
+\end{document}

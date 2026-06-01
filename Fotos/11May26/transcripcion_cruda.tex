@@ -1,0 +1,374 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\newcommand{\dudoso}[1]{\textsf{#1}}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 11May26}
+\end{center}
+
+\section*{Foto 1}
+
+An\'alisis Matem\'atico I.
+
+3 ex\'amenes parciales.
+Abarcando cada uno dos cap\'itulos.
+
+\begin{enumerate}[label=\arabic*.]
+    \item Im\'agenes y preim\'agenes de conjuntos bajo la acci\'on de funciones.
+    \item Espacios m\'etricos.
+    \item Funciones continuas.
+    \item Conceptos topol\'ogicos en espacios m\'etricos.
+    \item Espacios m\'etricos completos.
+    \item Espacios de funciones.
+\end{enumerate}
+
+Textos:
+\begin{enumerate}[label=\arabic*.]
+    \item Rudin, W., \textit{Principios de An\'alisis Matem\'atico}, 3.\textsuperscript{a} edici\'on, McGraw-Hill, \dudoso{1981}.
+\end{enumerate}
+
+Consulta:
+\begin{enumerate}[label=\arabic*.]
+    \item Bartle, R. G., \textit{Elementos de An\'alisis Real}, Ed. Limusa.
+\end{enumerate}
+
+\section*{Foto 2}
+
+Sean $A$ y $B$ conjuntos. Sea $f\colon A\to B$.
+Sean $C\subset A$ y $D\subset B$.
+
+La imagen directa de $C$ bajo la acci\'on de $f$ es
+\[
+f(C)=\{f(a)\mid a\in C\}.
+\]
+
+La imagen inversa de $D$, bajo la acci\'on de $f$, es
+\[
+f^{-1}(D)=\{a\in A\mid f(a)\in D\}.
+\]
+
+\section*{Foto 3}
+
+Repetici\'on del repaso de imagen directa e inversa.
+
+\section*{Foto 4}
+
+\textit{Algunas propiedades:}
+
+\begin{enumerate}[label=\arabic*.]
+    \item La imagen preserva uniones arbitrarias de conjuntos.
+    \[
+    f\Bigl(\bigcup_\alpha C_\alpha\Bigr)=\bigcup_\alpha f(C_\alpha).
+    \]
+    No preserva la intersecci\'on.
+    \item Las im\'agenes inversas s\'i preservan todas las operaciones de conjuntos, es decir
+    \[
+    f^{-1}\Bigl(\bigcup_\alpha D_\alpha\Bigr)=\bigcup_\alpha f^{-1}(D_\alpha),
+    \qquad
+    f^{-1}\Bigl(\bigcap_\alpha D_\alpha\Bigr)=\bigcap_\alpha f^{-1}(D_\alpha).
+    \]
+\end{enumerate}
+
+\section*{Foto 5}
+
+\[
+f^{-1}\Bigl(\bigcap_\alpha D_\alpha\Bigr)=\bigcap_\alpha f^{-1}(D_\alpha),
+\]
+\[
+f^{-1}(\varnothing)=\varnothing,\qquad f(\varnothing)=\varnothing.
+\]
+
+\textit{Ejemplos.}
+\[
+f(\varnothing)=\varnothing,\qquad f^{-1}(\varnothing)=\varnothing.
+\]
+
+\textit{Def.}
+Sean $A$ y $B$ conjuntos.
+Decimos que son equivalentes si existe una biyecci\'on $f\colon A\to B$.
+Se da una ``relaci\'on de equivalencia'' entre los conjuntos.
+
+\section*{Foto 6}
+
+\textit{Def.}
+Sea $A$ un conjunto. Su cardinalidad es la clase de equivalencia a la que pertenece.
+
+\textit{Def.}
+Un conjunto $A$ es finito si existe $n\in\mathbb N$ tal que $A$ se puede poner en biyecci\'on con $\{1,\dots,n\}$.
+
+\textit{Def.}
+Un conjunto $A$ es numerable si existe $f\colon\mathbb N\to A$ que es biyectiva.
+
+\textit{Ejemplos.} $\mathbb Z$.
+
+\textit{Teorema.}
+Si $A$ es numerable y $E\subset A$ es infinito, entonces $E$ es numerable.
+
+\section*{Foto 7}
+
+\textit{Dem. del teorema.}
+Dos casos.
+
+\begin{enumerate}[label=\arabic*.]
+    \item Sup\'ongase que $E_i\cap E_j=\varnothing$ si $i\neq j$. Establezcamos una biyecci\'on entre $\bigcup_{n=1}^\infty E_n$ y $\mathbb N\times\mathbb N$.
+    \item Si la familia $\{E_n\}_{n=1}^\infty$ no fuera mutuamente ajena.
+\end{enumerate}
+
+\section*{Foto 8}
+
+Construcci\'on diagonal:
+\[
+(1,1),(1,2),(1,3),\dots
+\]
+\[
+(2,1),(2,2),(2,3),\dots
+\]
+\[
+(3,1),(3,2),(3,3),\dots
+\]
+
+Reto: dar expl\'icitamente
+\[
+f\colon\mathbb N\to\mathbb N\times\mathbb N
+\]
+siguiendo el esquema de arriba.
+
+\section*{Foto 9}
+
+\textit{Teorema.} Si $A$ es numerable y $E_n$ es un conjunto numerable para cada $n$, entonces
+\[
+S=\bigcup_{n=1}^\infty E_n
+\]
+es numerable.
+
+\textit{(En, palabritas: la uni\'on numerable de numerables es numerable.)}
+
+\textit{Lema.} $\mathbb N\times\mathbb N$ es conjunto numerable.
+
+\textit{Dem del lema.} $\mathbb N\times\mathbb N$.
+
+\section*{Foto 10}
+
+En un conjunto numerable.
+
+Reto: dar expl\'icitamente
+\[
+f\colon\mathbb N\to\mathbb N\times\mathbb N
+\]
+siguiendo el esquema de arriba.
+
+\section*{Foto 11}
+
+\textit{Dem. del teorema.}
+Dos casos:
+
+\begin{enumerate}[label=\arabic*.]
+    \item Sup\'ongase que $E_i\cap E_j=\varnothing$ si $i\neq j$.
+\end{enumerate}
+
+Establecemos una biyecci\'on entre $\bigcup_{n=1}^\infty E_n$ y $\mathbb N\times\mathbb N$.
+
+Sea
+\[
+E_n=\{x_{n1},x_{n2},x_{n3},\dots\}.
+\]
+Definimos
+\[
+T:\mathbb N\times\mathbb N\to \bigcup_{n=1}^\infty E_n,\qquad T((i,j))=x_{ij}.
+\]
+
+\section*{Foto 12}
+
+Si $i_1\neq i_2$ entonces $T(i_1,j_1)\neq T(i_2,j_2)$ porque
+\[
+T(i_1,j_1)\in E_{i_1},\qquad T(i_2,j_2)\in E_{i_2},
+\]
+y como $E_{i_1}\cap E_{i_2}=\varnothing$, entonces
+\[
+T(i_1,j_1)\neq T(i_2,j_2).
+\]
+
+Si $i_1=i_2$, entonces $j_1\neq j_2$ aunque
+\[
+T(i_1,j_1),T(i_2,j_2)\in E_{i_1},
+\]
+son elementos distintos del mismo conjunto.
+
+\section*{Foto 13}
+
+\[
+\therefore\ T(i_1,j_1)\neq T(i_2,j_2).
+\]
+
+Si la familia $\{E_n\}_{n=1}^\infty$ no fueran mutuamente ajenos, se listan los elementos
+\[
+x_{11}\ x_{12}\ x_{13}\ \dots
+\]
+\[
+x_{21}\ x_{22}\ x_{23}\ \dots
+\]
+\[
+x_{31}\ x_{32}\ x_{33}\ \dots
+\]
+y
+\[
+\bigcup_{j=1}^\infty E_j
+\]
+del arreglo de arriba, que es numerable.
+
+\section*{Foto 14}
+
+\textit{Corolario.} Si $A$ es conjunto numerable y $B$ es conjunto numerable, entonces $A\times B$ es conjunto numerable.
+
+\textit{Dem.}
+Sea
+\[
+A_\alpha=\{(\alpha,\beta)\mid \beta\in B\}\subset A\times B.
+\]
+Entonces $A_\alpha$ es numerable y
+\[
+A\times B=\bigcup_{\alpha\in A}A_\alpha.
+\]
+
+\textit{Corolario.} Si $n\in\mathbb N$ y $A_1,\dots,A_n$ son conjuntos numerables, entonces
+\[
+A_1\times\cdots\times A_n
+\]
+es numerable.
+
+\textit{Lema.} $\mathbb N\times\mathbb N$ es numerable ya.
+
+\section*{Foto 15}
+
+\textit{Teorema.} $\mathbb Q$ es numerable.
+
+\[
+\mathbb Q=\left\{\frac{a}{b}\ \middle|\ a,b\in\mathbb Z,\ b>0\right\}.
+\]
+
+\[
+\mathbb Z\times\mathbb N \overset{S}{\to}\mathbb Q,\qquad S(a,b)=\frac{a}{b}.
+\]
+Es suprayectiva.
+\[
+\mathbb Q \text{ es numerable.}
+\]
+
+\section*{Foto 16}
+
+\textit{Ejercicio.}
+Sea $A$ numerable, $B$ un conjunto, $f\colon A\to B$ suprayectiva, entonces $B$ es a lo m\'as numerable.
+
+\textit{Ejemplo de un conjunto que es NO numerable, es decir no es finito y tampoco es numerable.}
+\[
+\mathcal C:=\{f:\mathbb N\to\{0,1\}\}.
+\]
+Entonces $\mathcal C$ es no numerable.
+
+\section*{Foto 17}
+
+Sea $E\subset \mathcal C$ cualquier subconjunto numerable de $\mathcal C$. P.D. que $E$ es un subconjunto propio.
+
+\section*{Foto 18}
+
+\textit{Ejemplo de un conjunto que es NO numerable, es decir no es finito y tampoco es numerable.}
+\[
+\mathcal C:=\{f:\mathbb N\to\{0,1\}\}.
+\]
+Entonces $\mathcal C$ es no numerable.
+
+\section*{Foto 19}
+
+Contin\'uamos con las definiciones.
+
+\[
+\mathcal C:=\{f:\mathbb N\to\{0,1\}\}.
+\]
+Sea $E\subset \mathcal C$ cualquier subconjunto numerable de $\mathcal C$.
+P.D. que $E$ es un subconjunto propio.
+
+\section*{Foto 20}
+
+$\mathcal C$ es no numerable.
+
+Espacios m\'etricos.
+
+\textit{Definici\'on.}
+Sea $X$ un conjunto no vac\'io. Una m\'etrica en $X$ es una funci\'on o distancia
+\[
+d:X\times X\to[0,\infty)
+\]
+con las siguientes propiedades:
+\begin{enumerate}[label=\roman*)]
+    \item $d(p,q)>0$ si $p\neq q$ y $d(p,p)=0$;
+    \item $d(p,q)=d(q,p)$;
+    \item $d(p,r)\le d(p,q)+d(q,r)$.
+\end{enumerate}
+
+\section*{Foto 21}
+
+\textit{Ejemplos.}
+
+\begin{enumerate}[label=\arabic*.]
+    \item En $\mathbb R$, $d(a,b)=|a-b|$.
+    \item En $\mathbb R^d$, $d(a,b)=\sqrt{\sum_{i=1}^d(a_i-b_i)^2}$.
+    \item M\'etrica discreta:
+    \[
+    d(a,b)=
+    \begin{cases}
+    1,& a\neq b,\\
+    0,& a=b.
+    \end{cases}
+    \]
+\end{enumerate}
+
+\section*{Foto 22}
+
+Lema: la m\'etrica discreta es, en efecto, una m\'etrica en $X$.
+
+\section*{Foto 23}
+
+\textit{Ejemplo.} Sea $a,b\in\mathbb R$, $a<b$.
+
+\[
+C([a,b])=\{f:[a,b]\to\mathbb R\mid f \text{ es continua}\}.
+\]
+
+Sea
+\[
+d:C([a,b])\times C([a,b])\to[0,\infty),
+\qquad
+d(f,g)=\sup\{|f(x)-g(x)|\mid x\in[a,b]\}.
+\]
+
+\textit{Afirmaci\'on.} $d$ es m\'etrica en $C([a,b])$.
+
+\section*{Foto 24}
+
+\[
+|f(x)-g(x)|\le |f(x)-h(x)|+|h(x)-g(x)|
+\]
+para todo $x\in[a,b]$.
+Entonces
+\[
+d(f,g)\le d(f,h)+d(h,g).
+\]
+
+\section*{Foto 25}
+
+\[
+(C([a,b]),d)\text{ es un espacio m\'etrico.}
+\]
+
+\end{document}

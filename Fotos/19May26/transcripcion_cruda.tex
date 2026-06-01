@@ -1,0 +1,146 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{enumitem}
+
+\geometry{margin=2.5cm}
+
+\begin{document}
+
+\begin{center}
+{\Large Transcripción cruda}\\[2mm]
+{\large 19May26}
+\end{center}
+
+\section*{Foto 1}
+
+\textit{Teorema.} Si $(X,d)$ es espacio métrico y $K\subset X$ es un conjunto compacto, entonces $K$ es cerrado.
+
+\textit{Dem.} Probamos que $K^c$ es abierto.
+Sea $p\in K^c$.
+Para cada $q\in K$, sea
+\[
+r_q=\frac12 d(p,q)>0.
+\]
+Afirmación:
+\[
+N_{r_q}(q)\cap N_{r_q}(p)=\varnothing.
+\]
+Es claro que
+\[
+K\subset\bigcup_{q\in K}N_{r_q}(q).
+\]
+Por compacidad de $K$, existen $q_1,\dots,q_n\in K$ tales que
+\[
+K\subset N_{r_{q_1}}(q_1)\cup\cdots\cup N_{r_{q_n}}(q_n).
+\]
+Puesto que $p\in\bigcap_{i=1}^n N_{r_{q_i}}(p)$ y
+\[
+\bigcap_{i=1}^n N_{r_{q_i}}(p)\cap K=\varnothing,
+\]
+se concluye que $K^c$ es abierto.
+
+\section*{Fotos 2--4}
+
+\textit{Teorema.} Los subconjuntos cerrados de conjuntos compactos son compactos.
+
+Es decir:
+\[
+\text{si }(X,d)\text{ es espacio métrico, }K\subset X\text{ es compacto y }F\subset K
+\]
+con $F$ cerrado, entonces $F$ es compacto.
+
+\textit{Dem.} Sea $\{V_\alpha\}_{\alpha\in\Lambda}$ una cubierta abierta de $F$ por abiertos de $X$.
+Como $F$ es cerrado y $K$ compacto, entonces $F^c$ es abierto y
+\[
+\mathcal L:=\{V_\alpha:\alpha\in\Lambda\}\cup\{F^c\}
+\]
+es una cubierta abierta de $K$.
+Por compacidad de $K$, existen $\alpha_1,\dots,\alpha_n\in\Lambda$ tales que
+\[
+K\subset V_{\alpha_1}\cup\cdots\cup V_{\alpha_n}\cup F^c.
+\]
+Como $F\subset K$, entonces
+\[
+F\subset V_{\alpha_1}\cup\cdots\cup V_{\alpha_n}.
+\]
+Luego $F$ es compacto.
+
+\section*{Fotos 5--6}
+
+\textit{Corolario.} Si $F\subset X$ es cerrado y $K\subset X$ es compacto, entonces $F\cap K$ es compacto.
+
+\textit{Dem.} $F\cap K$ es cerrado porque es intersección de cerrado con compacto cerrado.
+Además $F\cap K\subset K$.
+Por el teorema anterior, $F\cap K$ es compacto.
+
+\section*{Fotos 7--12}
+
+\textit{Teorema.} Sea $\mathcal K=\{K_\alpha\}_{\alpha\in\Lambda}$ una familia de subconjuntos compactos de $X$.
+Supongamos que toda subfamilia finita de $\mathcal K$ tiene intersección no vacía.
+Entonces
+\[
+\bigcap_{\alpha\in\Lambda}K_\alpha\neq\varnothing.
+\]
+
+\textit{Dem.} Si
+\[
+\bigcap_{\alpha\in\Lambda}K_\alpha=\varnothing,
+\]
+entonces para algún $\alpha_0\in\Lambda$ se tiene
+\[
+K_{\alpha_0}\cap\bigcap_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha=\varnothing.
+\]
+Sea $\alpha_0\in\Lambda$ fijo. Entonces
+\[
+\varnothing=K_{\alpha_0}\cap\bigcap_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha
+\]
+y por tanto
+\[
+K_{\alpha_0}\subset\bigcup_{\alpha\in\Lambda\setminus\{\alpha_0\}}K_\alpha^c.
+\]
+Como cada $K_\alpha^c$ es abierto, la familia $\{K_\alpha^c\}_{\alpha\in\Lambda\setminus\{\alpha_0\}}$ es una cubierta abierta de $K_{\alpha_0}$.
+Por compacidad, existe una subcubierta finita
+\[
+K_{\alpha_0}\subset K_{\alpha_1}^c\cup\cdots\cup K_{\alpha_m}^c.
+\]
+Entonces
+\[
+K_{\alpha_0}\cap K_{\alpha_1}\cap\cdots\cap K_{\alpha_m}=\varnothing,
+\]
+contradicción.
+
+\section*{Fotos 13--19}
+
+\textit{Corolario.} Sea $\{K_n\}_{n=1}^\infty$ una familia de conjuntos compactos no vacíos.
+Supongamos que
+\[
+K_1\supset K_2\supset K_3\supset\cdots.
+\]
+Entonces
+\[
+\bigcap_{n=1}^\infty K_n\neq\varnothing.
+\]
+
+\section*{Foto 20}
+
+\textit{Definición.} Decimos que dos métricas $d_1$ y $d_2$ sobre el mismo conjunto son equivalentes si la familia de abiertos determinada por $d_1$ es igual a la familia de abiertos determinada por $d_2$.
+
+\textit{Ejemplo.} En $\mathbb R^k$, sea $d_1$ la métrica euclidiana y sea
+\[
+d_2(a,b)=\max\{|a_i-b_i|:i=1,\dots,k\}.
+\]
+Entonces $d_2$ es una métrica.
+
+Para $k=2$:
+\[
+B_1^{d_1}(0)=\{(x,y)\in\mathbb R^2:\sqrt{x^2+y^2}<1\},
+\]
+\[
+B_1^{d_2}(0)=\{(x,y)\in\mathbb R^2:\max\{|x|,|y|\}<1\}.
+\]
+
+\end{document}
