@@ -1,0 +1,192 @@
+\text{Análisis Matemático I}
+
+\text{3 exámenes parciales:}
+
+\text{Abarcando cada uno dos capítulos.}
+
+\begin{enumerate}
+    \item Imágenes y preimágenes de conjuntos bajo la acción de funciones.
+    \item Espacios métricos.
+    \item Funciones continuas.
+    \item Conceptos topológicos en espacios métricos.
+    \item Espacios métricos completos.
+    \item Espacios de funciones.
+\end{enumerate}
+
+\text{Textos:}
+
+\begin{enumerate}
+    \item Rudin, W. \emph{Principios de Análisis Matemático}. 3a edición, McGraw-Hill, 1981.
+    \item Bartle, R. G. \emph{Elementos de Análisis Real}. Ed. Limusa.
+\end{enumerate}
+
+\text{\underline{Repaso:}}
+
+\[
+\text{Sean } A,B \text{ conjuntos. Sea } f:A\to B.
+\]
+
+\[
+\text{Sean } C\subset A \text{ y } D\subset B.
+\]
+
+\[
+\text{La imagen directa de } C \text{ bajo la acción de } f,
+\text{ es el siguiente conjunto}
+\]
+
+\[
+f(C)=\{\,f(a)\mid a\in C\,\}.
+\]
+
+\[
+\text{La imagen inversa de } D \text{ bajo la acción de } f:
+\]
+
+\[
+f^{-1}(D)=\{\,a\in A\mid f(a)\in D\,\}.
+\]
+
+\text{Algunas propiedades:}
+
+\begin{enumerate}
+    \item La imagen preserva uniones arbitrarias de conjuntos $C_\alpha$.
+\end{enumerate}
+
+\[
+C_\alpha\subset A
+\Rightarrow
+f\left(\bigcup_{\alpha} C_\alpha\right)
+=
+\bigcup_{\alpha} f(C_\alpha)
+\]
+
+\[
+\text{No preserva la intersección.}
+\]
+
+\begin{enumerate}
+    \setcounter{enumi}{1}
+    \item Las imágenes inversas sí preservan todas las operaciones de conjuntos, es decir
+\end{enumerate}
+
+\[
+D_\alpha\subset B,
+\qquad
+f^{-1}\left(\bigcup_{\alpha}D_\alpha\right)
+=
+\bigcup_{\alpha} f^{-1}(D_\alpha)
+\]
+
+\[
+\text{\underline{Def:}}\quad
+\text{Sean } A,B \text{ conjuntos. Decimos que son equivalentes si }
+\exists f:A\to B \text{ que es biyectiva.}
+\]
+
+\[
+\text{Se da una ``relación de equivalencia'' entre los conjuntos.}
+\]
+
+\[
+\text{\underline{Def:}}\quad
+\text{Sea } A \text{ un conjunto. Su cardinalidad es la clase de equivalencia a la que pertenece.}
+\]
+
+\[
+\text{\underline{Def:}}\quad
+\text{Un conjunto } A \text{ es finito si } \exists n\in \mathbb{N}
+\text{ tal que } A \text{ se puede poner en biyección con } \{1,\ldots,n\}.
+\]
+
+\[
+\text{\underline{Def:}}\quad
+A \text{ conjunto es numerable si } \exists f:\mathbb{N}\to A
+\text{ que es biyectiva.}
+\]
+
+\[
+\text{Ejemplos: } \mathbb{Z},
+\]
+
+\[
+\text{\underline{Teorema:}}\quad
+\text{Si } A \text{ es un conjunto numerable y } E\subset A,
+\text{ con } E \text{ infinito, entonces } E \text{ es numerable.}
+\]
+
+\[
+\text{\underline{Dem:}}\quad
+\text{Sea } f:\mathbb{N}\to A \text{ biyectiva.}
+\]
+
+\[
+\text{P.D. } \exists g:\mathbb{N}\to E \text{ que es biyectiva.}
+\]
+
+\[
+\text{Sea } h:\mathbb{N}\to \mathbb{N}.
+\]
+
+\[
+h(1)=\min\{\,n\in\mathbb{N}\mid f(n)\in E\,\}\neq \varnothing
+\quad \text{porque } f \text{ es suprayectiva.}
+\]
+
+\[
+h(1)\text{ está bien definido.}
+\]
+
+\[
+h(2)=\min\{\,n\in\mathbb{N}\mid n>h(1),\ f(n)\in E\,\}.
+\]
+
+\[
+\{\,n\in\mathbb{N}\mid n>h(1),\ f(n)\in E\,\}\neq \varnothing
+\quad \text{porque } f \text{ es suprayectiva.}
+\]
+
+\[
+h(3)=\min\{\,n\in\mathbb{N}\mid n>h(2),\ f(n)\in E\,\}.
+\]
+
+\[
+\vdots
+\]
+
+\[
+h(1)<h(2)<h(3)<\cdots
+\]
+
+\[
+f(h(j))\in E
+\quad \forall j.
+\]
+
+\[
+f\circ h:\mathbb{N}\to E
+\]
+
+\[
+f\circ h \text{ es inyectiva.}
+\]
+
+\[
+\text{Sea } b\in E.
+\text{ P.D. } \exists j\in\mathbb{N} \text{ tal que } f\circ h(j)=b.
+\]
+
+\[
+\exists k\in\mathbb{N}
+\text{ tal que } f(k)=b\in E.
+\]
+
+\[
+\Rightarrow
+\text{P.D. } \exists j\in\mathbb{N}
+\text{ tal que } h(j)=k.
+\]
+
+\[
+\text{Si es falso, } \forall j\in\mathbb{N},\ h(j)\neq k.
+\]

@@ -1,0 +1,71 @@
+
+
+### 🔧 **Prompt Técnico para Generación de Apuntes Académicos con Restricciones de Fuente**
+
+#### 🎯 **Objetivo General**
+
+Generar una versión consolidada, complementada y estructurada de apuntes de clase, utilizando exclusivamente los documentos proporcionados (libros y fotografías de apuntes), con el fin de preparar una salida formal en formato LaTeX. Esta información podrá ser utilizada más adelante para resolver ejercicios técnicos únicamente en base a lo desarrollado.
+
+---
+
+### 📦 **Restricciones Críticas (Modo Cerrado de Conocimiento)**
+
+**A partir de este punto, debes operar en *modo cerrado*, bajo las siguientes reglas:**
+
+1. **Fuente única**:
+   Los libros y fotografías de apuntes proporcionados son las **únicas fuentes válidas de información**.
+   **No puedes utilizar ningún conocimiento externo.**
+
+2. **Conocimiento implícito permitido**:
+   Solo puedes usar conocimientos previos **si son estrictamente necesarios para comprender lo que está expresado en los documentos** (por ejemplo, interpretación de símbolos matemáticos estándar o sintaxis de definiciones).
+
+3. **Verificación obligatoria**:
+   Antes de realizar cualquier afirmación, deducción o desarrollo:
+
+   * Verifica que esté **explícita o lógicamente deducida** desde los documentos.
+   * Si no puedes justificarlo **directamente desde el contenido**, **detente** y devuelve:
+     `⛔ No se puede continuar: la información necesaria no está disponible en los documentos proporcionados.`
+
+4. **Prohibiciones estrictas**:
+
+   * No infieras conceptos no presentados o no deducibles directamente.
+   * No completes huecos con suposiciones, ni aunque sean matemáticamente razonables o comunes en teoría.
+   * No recurras a "sentido común técnico" si no está justificado explícitamente.
+
+---
+
+### 🧩 **Proceso de Ejecución**
+
+#### Paso 1: `CARGAR_DOCUMENTOS()`
+
+* Leer y organizar los **libros** y **fotografías de apuntes** proporcionados.
+* Indexar contenido textual y estructuralmente.
+
+#### Paso 2: `EXTRAER_CONTENIDO()`
+
+* Analizar las fotografías para recuperar texto, fórmulas, anotaciones y esquemas.
+* Procesar los libros para aislar definiciones, teoremas, propiedades, ejemplos, etc.
+
+#### Paso 3: `RELACIONAR_TEMAS()`
+
+* Vincular apuntes y contenido de libros, identificando relaciones conceptuales.
+* Detectar temas que aparentan estar aislados y comprobar su conexión lógica o temática.
+* Evaluar profundidad teórica alcanzada por cada tema tratado.
+* Si algún contenido de los apuntes no está cubierto por los libros, marcarlo como `FUENTE_INCOMPLETA`.
+
+#### Paso 4: `GENERAR_LATEX()`
+
+* Estructurar los apuntes de forma ordenada y clara, en formato LaTeX.
+* Usar secciones, ecuaciones, listas y entornos matemáticos adecuados.
+* Garantizar:
+
+  * Precisión técnica.
+  * Notación coherente con los documentos fuente.
+  * Claridad conceptual sin agregar contenido externo.
+
+---
+
+### 🔐 **Nota Final**
+
+Toda salida generada en este contexto debe estar alineada **exclusivamente** con la información disponible en los documentos cargados. Esta restricción es fundamental para garantizar la trazabilidad y justificación de todo el contenido, tanto en los apuntes como en la resolución posterior de ejercicios.
+

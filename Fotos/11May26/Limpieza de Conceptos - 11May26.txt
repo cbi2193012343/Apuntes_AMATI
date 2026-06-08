@@ -1,0 +1,1176 @@
+
+
+# Repaso ordenado
+
+Sean (A,B) conjuntos y sea
+
+[
+f:A\to B.
+]
+
+Sea (C\subseteq A) y sea (D\subseteq B).
+
+---
+
+# I. Definiciones
+
+## Definición 1. Imagen directa
+
+La **imagen directa** de (C) bajo (f) es
+
+[
+f(C)={f(a):a\in C}.
+]
+
+Equivalentemente,
+
+[
+y\in f(C)
+\iff
+\exists a\in C \text{ tal que } y=f(a).
+]
+
+En particular,
+
+[
+f(C)\subseteq B.
+]
+
+---
+
+## Definición 2. Imagen inversa
+
+La **imagen inversa** de (D) bajo (f) es
+
+[
+f^{-1}(D)={a\in A:f(a)\in D}.
+]
+
+Equivalentemente,
+
+[
+a\in f^{-1}(D)
+\iff
+a\in A \ \wedge\ f(a)\in D.
+]
+
+En particular,
+
+[
+f^{-1}(D)\subseteq A.
+]
+
+Ojo: aquí (f^{-1}(D)) **no exige que (f^{-1}) sea función**. Es sólo notación para el subconjunto de (A) cuyos puntos caen dentro de (D).
+
+---
+
+# II. Proposiciones sobre imagen directa
+
+## Proposición 1. La imagen directa preserva uniones arbitrarias
+
+Sea ({C_\alpha}_{\alpha\in I}) una familia de subconjuntos de (A). Entonces:
+
+[
+f\left(\bigcup_{\alpha\in I}C_\alpha\right)
+===========================================
+
+\bigcup_{\alpha\in I}f(C_\alpha).
+]
+
+### Demostración
+
+Sea (y\in B). Entonces:
+
+[
+\begin{aligned}
+y\in f\left(\bigcup_{\alpha\in I}C_\alpha\right)
+&\iff \exists a\in \bigcup_{\alpha\in I}C_\alpha
+\text{ tal que } y=f(a) [1mm]
+&\iff \exists a\in A
+\text{ tal que }
+\left(a\in \bigcup_{\alpha\in I}C_\alpha
+\ \wedge\ y=f(a)\right) [1mm]
+&\iff \exists a\in A
+\text{ tal que }
+\left((\exists \alpha\in I:a\in C_\alpha)
+\ \wedge\ y=f(a)\right) [1mm]
+&\iff \exists \alpha\in I
+\text{ tal que }
+\exists a\in C_\alpha
+\text{ con } y=f(a) [1mm]
+&\iff \exists \alpha\in I
+\text{ tal que }
+y\in f(C_\alpha) [1mm]
+&\iff y\in \bigcup_{\alpha\in I}f(C_\alpha).
+\end{aligned}
+]
+
+Por tanto,
+
+[
+\boxed{
+f\left(\bigcup_{\alpha\in I}C_\alpha\right)
+===========================================
+
+\bigcup_{\alpha\in I}f(C_\alpha)
+}.
+]
+
+---
+
+## Proposición 2. La imagen directa no preserva intersecciones en general
+
+La igualdad
+
+[
+f\left(\bigcap_{\alpha\in I}C_\alpha\right)
+===========================================
+
+\bigcap_{\alpha\in I}f(C_\alpha)
+]
+
+no siempre es verdadera.
+
+Lo que siempre se cumple es la inclusión:
+
+[
+f\left(\bigcap_{\alpha\in I}C_\alpha\right)
+\subseteq
+\bigcap_{\alpha\in I}f(C_\alpha).
+]
+
+### Demostración de la inclusión
+
+Sea (y\in f\left(\bigcap_{\alpha\in I}C_\alpha\right)). Entonces:
+
+[
+\begin{aligned}
+y\in f\left(\bigcap_{\alpha\in I}C_\alpha\right)
+&\iff \exists a\in \bigcap_{\alpha\in I}C_\alpha
+\text{ tal que } y=f(a) [1mm]
+&\iff \exists a\in A
+\text{ tal que }
+\left(
+\forall \alpha\in I,\ a\in C_\alpha
+\right)
+\ \wedge\ y=f(a).
+\end{aligned}
+]
+
+Por tanto, para cada (\alpha\in I),
+
+[
+a\in C_\alpha
+\quad\text{y}\quad
+y=f(a).
+]
+
+Luego,
+
+[
+y\in f(C_\alpha)
+\qquad
+\forall \alpha\in I.
+]
+
+Así,
+
+[
+y\in \bigcap_{\alpha\in I}f(C_\alpha).
+]
+
+Por tanto,
+
+[
+\boxed{
+f\left(\bigcap_{\alpha\in I}C_\alpha\right)
+\subseteq
+\bigcap_{\alpha\in I}f(C_\alpha)
+}.
+]
+
+### Contraejemplo para la igualdad
+
+Sea
+
+[
+A={1,2},
+\qquad
+B={0},
+]
+
+y sea
+
+[
+f:A\to B,
+\qquad
+f(1)=0,
+\qquad
+f(2)=0.
+]
+
+Toma
+
+[
+C_1={1},
+\qquad
+C_2={2}.
+]
+
+Entonces:
+
+[
+C_1\cap C_2=\varnothing.
+]
+
+Por tanto,
+
+[
+f(C_1\cap C_2)
+==============
+
+# f(\varnothing)
+
+\varnothing.
+]
+
+Pero
+
+[
+f(C_1)={0},
+\qquad
+f(C_2)={0}.
+]
+
+Luego,
+
+[
+f(C_1)\cap f(C_2)
+=================
+
+# {0}\cap {0}
+
+{0}.
+]
+
+Así,
+
+[
+f(C_1\cap C_2)
+==============
+
+\varnothing
+\neq
+{0}
+===
+
+f(C_1)\cap f(C_2).
+]
+
+Por tanto, la imagen directa **no preserva intersecciones en general**.
+
+---
+
+## Proposición 3. Si (f) es inyectiva, entonces la imagen directa sí preserva intersecciones
+
+Si (f:A\to B) es inyectiva, entonces:
+
+[
+f\left(\bigcap_{\alpha\in I}C_\alpha\right)
+===========================================
+
+\bigcap_{\alpha\in I}f(C_\alpha).
+]
+
+### Demostración
+
+Ya sabemos que
+
+[
+f\left(\bigcap_{\alpha\in I}C_\alpha\right)
+\subseteq
+\bigcap_{\alpha\in I}f(C_\alpha).
+]
+
+Probemos la otra inclusión. Sea
+
+[
+y\in \bigcap_{\alpha\in I}f(C_\alpha).
+]
+
+Entonces:
+
+[
+\forall \alpha\in I,
+\qquad
+y\in f(C_\alpha).
+]
+
+Por tanto,
+
+[
+\forall \alpha\in I,
+\qquad
+\exists a_\alpha\in C_\alpha
+\text{ tal que }
+f(a_\alpha)=y.
+]
+
+Fijemos (\alpha_0\in I). Entonces:
+
+[
+y=f(a_{\alpha_0}).
+]
+
+Además, para todo (\alpha\in I),
+
+[
+f(a_\alpha)=y=f(a_{\alpha_0}).
+]
+
+Como (f) es inyectiva,
+
+[
+a_\alpha=a_{\alpha_0}
+\qquad
+\forall \alpha\in I.
+]
+
+Entonces
+
+[
+a_{\alpha_0}\in C_\alpha
+\qquad
+\forall \alpha\in I.
+]
+
+Por tanto,
+
+[
+a_{\alpha_0}\in \bigcap_{\alpha\in I}C_\alpha.
+]
+
+Y como
+
+[
+f(a_{\alpha_0})=y,
+]
+
+se sigue que
+
+[
+y\in f\left(\bigcap_{\alpha\in I}C_\alpha\right).
+]
+
+Luego,
+
+[
+\bigcap_{\alpha\in I}f(C_\alpha)
+\subseteq
+f\left(\bigcap_{\alpha\in I}C_\alpha\right).
+]
+
+Por doble inclusión,
+
+[
+\boxed{
+f\left(\bigcap_{\alpha\in I}C_\alpha\right)
+===========================================
+
+\bigcap_{\alpha\in I}f(C_\alpha)
+}.
+]
+
+---
+
+# III. Proposiciones sobre imagen inversa
+
+## Proposición 4. La imagen inversa preserva uniones arbitrarias
+
+Sea ({D_\alpha}_{\alpha\in I}) una familia de subconjuntos de (B). Entonces:
+
+[
+f^{-1}\left(\bigcup_{\alpha\in I}D_\alpha\right)
+================================================
+
+\bigcup_{\alpha\in I}f^{-1}(D_\alpha).
+]
+
+### Demostración
+
+Sea (a\in A). Entonces:
+
+[
+\begin{aligned}
+a\in f^{-1}\left(\bigcup_{\alpha\in I}D_\alpha\right)
+&\iff f(a)\in \bigcup_{\alpha\in I}D_\alpha [1mm]
+&\iff \exists \alpha\in I
+\text{ tal que }
+f(a)\in D_\alpha [1mm]
+&\iff \exists \alpha\in I
+\text{ tal que }
+a\in f^{-1}(D_\alpha) [1mm]
+&\iff a\in \bigcup_{\alpha\in I}f^{-1}(D_\alpha).
+\end{aligned}
+]
+
+Por tanto,
+
+[
+\boxed{
+f^{-1}\left(\bigcup_{\alpha\in I}D_\alpha\right)
+================================================
+
+\bigcup_{\alpha\in I}f^{-1}(D_\alpha)
+}.
+]
+
+---
+
+## Proposición 5. La imagen inversa preserva intersecciones arbitrarias
+
+[
+f^{-1}\left(\bigcap_{\alpha\in I}D_\alpha\right)
+================================================
+
+\bigcap_{\alpha\in I}f^{-1}(D_\alpha).
+]
+
+### Demostración
+
+Sea (a\in A). Entonces:
+
+[
+\begin{aligned}
+a\in f^{-1}\left(\bigcap_{\alpha\in I}D_\alpha\right)
+&\iff f(a)\in \bigcap_{\alpha\in I}D_\alpha [1mm]
+&\iff \forall \alpha\in I,
+\quad
+f(a)\in D_\alpha [1mm]
+&\iff \forall \alpha\in I,
+\quad
+a\in f^{-1}(D_\alpha) [1mm]
+&\iff a\in \bigcap_{\alpha\in I}f^{-1}(D_\alpha).
+\end{aligned}
+]
+
+Por tanto,
+
+[
+\boxed{
+f^{-1}\left(\bigcap_{\alpha\in I}D_\alpha\right)
+================================================
+
+\bigcap_{\alpha\in I}f^{-1}(D_\alpha)
+}.
+]
+
+---
+
+## Proposición 6. La imagen inversa preserva complementos relativos
+
+Si (D\subseteq B), entonces:
+
+[
+f^{-1}(B\setminus D)
+====================
+
+A\setminus f^{-1}(D).
+]
+
+### Demostración
+
+Sea (a\in A). Entonces:
+
+[
+\begin{aligned}
+a\in f^{-1}(B\setminus D)
+&\iff f(a)\in B\setminus D [1mm]
+&\iff f(a)\in B
+\ \wedge
+f(a)\notin D [1mm]
+&\iff f(a)\notin D [1mm]
+&\iff a\notin f^{-1}(D) [1mm]
+&\iff a\in A\setminus f^{-1}(D).
+\end{aligned}
+]
+
+Por tanto,
+
+[
+\boxed{
+f^{-1}(B\setminus D)
+====================
+
+A\setminus f^{-1}(D)
+}.
+]
+
+Esta propiedad coincide con la forma que aparece en el documento:
+
+[
+f^{-1}[Y\setminus B]=X\setminus f^{-1}[B].
+]
+
+---
+
+## Proposición 7. La imagen inversa preserva diferencias
+
+Si (D,E\subseteq B), entonces:
+
+[
+f^{-1}(D\setminus E)
+====================
+
+f^{-1}(D)\setminus f^{-1}(E).
+]
+
+### Demostración
+
+Sea (a\in A). Entonces:
+
+[
+\begin{aligned}
+a\in f^{-1}(D\setminus E)
+&\iff f(a)\in D\setminus E [1mm]
+&\iff f(a)\in D
+\ \wedge
+f(a)\notin E [1mm]
+&\iff a\in f^{-1}(D)
+\ \wedge
+a\notin f^{-1}(E) [1mm]
+&\iff a\in f^{-1}(D)\setminus f^{-1}(E).
+\end{aligned}
+]
+
+Por tanto,
+
+[
+\boxed{
+f^{-1}(D\setminus E)
+====================
+
+f^{-1}(D)\setminus f^{-1}(E)
+}.
+]
+
+---
+
+# Resumen: qué es definición y qué es proposición
+
+[
+\begin{array}{c|c}
+\text{Enunciado} & \text{Tipo} \
+\hline
+f(C)={f(a):a\in C} & \text{Definición} \
+f^{-1}(D)={a\in A:f(a)\in D} & \text{Definición} \
+f\left(\bigcup_\alpha C_\alpha\right)=\bigcup_\alpha f(C_\alpha) & \text{Proposición} \
+f\left(\bigcap_\alpha C_\alpha\right)\subseteq \bigcap_\alpha f(C_\alpha) & \text{Proposición} \
+f\left(\bigcap_\alpha C_\alpha\right)=\bigcap_\alpha f(C_\alpha) \text{ si } f \text{ es inyectiva} & \text{Proposición} \
+f^{-1}\left(\bigcup_\alpha D_\alpha\right)=\bigcup_\alpha f^{-1}(D_\alpha) & \text{Proposición} \
+f^{-1}\left(\bigcap_\alpha D_\alpha\right)=\bigcap_\alpha f^{-1}(D_\alpha) & \text{Proposición} \
+f^{-1}(B\setminus D)=A\setminus f^{-1}(D) & \text{Proposición} \
+f^{-1}(D\setminus E)=f^{-1}(D)\setminus f^{-1}(E) & \text{Proposición}
+\end{array}
+]
+
+
+
+[
+\underline{\text{Definición.}}
+]
+
+Sean (A) y (B) conjuntos. Decimos que (A) y (B) son **equipotentes**, o que tienen la misma cardinalidad, si existe una función biyectiva
+
+[
+f:A\to B.
+]
+
+En símbolos:
+
+[
+A\sim B
+\iff
+\exists f:A\to B
+\text{ biyectiva}.
+]
+
+La relación (\sim) define una relación de equivalencia entre conjuntos.
+
+---
+
+[
+\underline{\text{Definición.}}
+]
+
+Sea (A) un conjunto. La **cardinalidad** de (A) es la clase de equivalencia de (A) bajo la relación de equipotencia. Es decir,
+
+[
+|A|
+===
+
+# [A]
+
+{B:B\sim A}.
+]
+
+---
+
+[
+\underline{\text{Definición.}}
+]
+
+Un conjunto (A) es **finito** si existe (n\in\mathbb N) tal que (A) es equipotente con ({1,\dots,n}). Es decir,
+
+[
+A \text{ es finito}
+\iff
+\exists n\in\mathbb N
+\text{ tal que }
+A\sim {1,\dots,n}.
+]
+
+Equivalentemente,
+
+[
+\exists f:{1,\dots,n}\to A
+\text{ biyectiva}.
+]
+
+---
+
+[
+\underline{\text{Definición.}}
+]
+
+Un conjunto (A) es **numerable infinito** si existe una biyección
+
+[
+f:\mathbb N\to A.
+]
+
+Es decir,
+
+[
+A \text{ es numerable infinito}
+\iff
+\exists f:\mathbb N\to A
+\text{ biyectiva}.
+]
+
+Por ejemplo,
+
+[
+\mathbb Z
+]
+
+es numerable infinito.
+
+---
+
+[
+\underline{\text{Teorema.}}
+]
+
+Si (A) es un conjunto numerable infinito y (E\subseteq A) es infinito, entonces (E) es numerable infinito.
+
+---
+
+[
+\underline{\text{Demostración.}}
+]
+
+Como (A) es numerable infinito, existe una biyección
+
+[
+f:\mathbb N\to A.
+]
+
+Queremos construir una biyección
+
+[
+g:\mathbb N\to E.
+]
+
+Como (E\subseteq A), consideremos los índices de los elementos de (E) bajo la enumeración (f):
+
+[
+M={n\in\mathbb N:f(n)\in E}.
+]
+
+Como (f) es suprayectiva y (E\neq\varnothing), se tiene
+
+[
+M\neq\varnothing.
+]
+
+Además, como (E) es infinito y (f) es biyectiva, el conjunto (M) también es infinito.
+
+Definimos recursivamente (h:\mathbb N\to\mathbb N) por
+
+[
+h(1)=\min M.
+]
+
+Luego,
+
+[
+h(k+1)=\min{n\in M:h(k)<n}.
+]
+
+Es decir,
+
+[
+h(k+1)=
+\min{n\in\mathbb N:n>h(k),\ f(n)\in E}.
+]
+
+Como (M) es infinito, el conjunto
+
+[
+{n\in M:h(k)<n}
+]
+
+es no vacío para todo (k\in\mathbb N). Por tanto, (h(k)) está bien definido para todo (k\in\mathbb N).
+
+Además,
+
+[
+h(1)<h(2)<h(3)<\cdots.
+]
+
+Y, por construcción,
+
+[
+f(h(k))\in E
+\qquad
+\forall k\in\mathbb N.
+]
+
+Definimos ahora
+
+[
+g:\mathbb N\to E
+]
+
+por
+
+[
+g(k)=f(h(k)).
+]
+
+Entonces
+
+[
+g=f\circ h.
+]
+
+Primero probamos que (g) es inyectiva. Sean (i,j\in\mathbb N) tales que
+
+[
+g(i)=g(j).
+]
+
+Entonces
+
+[
+f(h(i))=f(h(j)).
+]
+
+Como (f) es inyectiva,
+
+[
+h(i)=h(j).
+]
+
+Como (h) es estrictamente creciente, es inyectiva. Por tanto,
+
+[
+i=j.
+]
+
+Luego,
+
+[
+g \text{ es inyectiva}.
+]
+
+Ahora probamos que (g) es suprayectiva. Sea (b\in E). Como (E\subseteq A) y (f:\mathbb N\to A) es suprayectiva, existe (k\in\mathbb N) tal que
+
+[
+f(k)=b.
+]
+
+Como (b\in E), se tiene
+
+[
+f(k)\in E.
+]
+
+Por tanto,
+
+[
+k\in M.
+]
+
+Como (h) enumera crecientemente todos los elementos de (M), existe (j\in\mathbb N) tal que
+
+[
+h(j)=k.
+]
+
+Luego,
+
+[
+g(j)=f(h(j))=f(k)=b.
+]
+
+Así,
+
+[
+\forall b\in E,\ \exists j\in\mathbb N
+\text{ tal que }
+g(j)=b.
+]
+
+Por tanto,
+
+[
+g \text{ es suprayectiva}.
+]
+
+Como (g) es inyectiva y suprayectiva, (g) es biyectiva. Luego,
+
+[
+E \sim \mathbb N.
+]
+
+Por tanto,
+
+[
+\boxed{E \text{ es numerable infinito}.}
+]
+
+
+Aquí va una versión más limpia, corregida y cerrada. Separé el **lema** del **teorema** y evité asumir innecesariamente que los (E_n) son disjuntos.
+
+---
+
+[
+\underline{\text{Teorema.}}
+]
+
+Sea ({E_n}_{n\in\mathbb N}) una familia numerable de conjuntos numerables. Definamos
+
+[
+S=\bigcup_{n=1}^{\infty}E_n.
+]
+
+Entonces (S) es numerable.
+
+En palabras:
+
+[
+\boxed{
+\text{La unión numerable de conjuntos numerables es numerable.}
+}
+]
+
+---
+
+[
+\underline{\text{Lema.}}
+]
+
+El conjunto
+
+[
+\mathbb N\times\mathbb N
+]
+
+es numerable.
+
+---
+
+[
+\underline{\text{Demostración del lema.}}
+]
+
+Ordenamos los elementos de (\mathbb N\times\mathbb N) por diagonales:
+
+[
+\begin{array}{ccccc}
+(1,1) & (1,2) & (1,3) & (1,4) & \cdots \
+(2,1) & (2,2) & (2,3) & (2,4) & \cdots \
+(3,1) & (3,2) & (3,3) & (3,4) & \cdots \
+(4,1) & (4,2) & (4,3) & (4,4) & \cdots \
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{array}
+]
+
+La enumeración diagonal es:
+
+[
+(1,1),
+]
+
+[
+(1,2),(2,1),
+]
+
+[
+(1,3),(2,2),(3,1),
+]
+
+[
+(1,4),(2,3),(3,2),(4,1),
+]
+
+[
+\ldots
+]
+
+Es decir, se enumeran primero los pares ((i,j)) tales que
+
+[
+i+j=2,
+]
+
+luego los que cumplen
+
+[
+i+j=3,
+]
+
+después los que cumplen
+
+[
+i+j=4,
+]
+
+y así sucesivamente.
+
+Definimos una función
+
+[
+\varphi:\mathbb N\to \mathbb N\times\mathbb N
+]
+
+como sigue. Para cada (m\in\mathbb N), sea
+
+[
+T_m=\frac{m(m+1)}{2}.
+]
+
+Dado (k\in\mathbb N), existe un único (m\in\mathbb N) tal que
+
+[
+T_{m-1}<k\leq T_m.
+]
+
+Definimos
+
+[
+r=k-T_{m-1}.
+]
+
+Entonces
+
+[
+1\leq r\leq m.
+]
+
+Ahora ponemos
+
+[
+\varphi(k)=(r,m-r+1).
+]
+
+Con esto,
+
+[
+\varphi(1)=(1,1),
+]
+
+[
+\varphi(2)=(1,2),\qquad \varphi(3)=(2,1),
+]
+
+[
+\varphi(4)=(1,3),\qquad \varphi(5)=(2,2),\qquad \varphi(6)=(3,1),
+]
+
+y así sucesivamente.
+
+Por construcción, cada par ((i,j)\in\mathbb N\times\mathbb N) aparece exactamente una vez en la diagonal
+
+[
+i+j=m+1.
+]
+
+Por tanto, (\varphi) es biyectiva. Luego,
+
+[
+\mathbb N\times\mathbb N
+]
+
+es numerable.
+
+[
+\boxed{\mathbb N\times\mathbb N \text{ es numerable}.}
+]
+
+---
+
+[
+\underline{\text{Demostración del teorema.}}
+]
+
+Como cada (E_i) es numerable, para cada (i\in\mathbb N) existe una enumeración
+
+[
+E_i={x_{i1},x_{i2},x_{i3},\ldots}.
+]
+
+Equivalentemente, existe una función suprayectiva
+
+[
+f_i:\mathbb N\to E_i
+]
+
+dada por
+
+[
+f_i(j)=x_{ij}.
+]
+
+Consideramos ahora la función
+
+[
+T:\mathbb N\times\mathbb N\to S
+]
+
+definida por
+
+[
+T(i,j)=x_{ij}.
+]
+
+Es decir,
+
+[
+T(i,j)
+======
+
+\text{el }j\text{-ésimo elemento de }E_i.
+]
+
+Como
+
+[
+x_{ij}\in E_i
+\subseteq \bigcup_{n=1}^{\infty}E_n=S,
+]
+
+la función (T) está bien definida.
+
+Ahora probamos que (T) es suprayectiva. Sea
+
+[
+s\in S.
+]
+
+Como
+
+[
+S=\bigcup_{n=1}^{\infty}E_n,
+]
+
+existe (i\in\mathbb N) tal que
+
+[
+s\in E_i.
+]
+
+Como
+
+[
+E_i={x_{i1},x_{i2},x_{i3},\ldots},
+]
+
+existe (j\in\mathbb N) tal que
+
+[
+s=x_{ij}.
+]
+
+Por tanto,
+
+[
+s=T(i,j).
+]
+
+Luego,
+
+[
+T:\mathbb N\times\mathbb N\to S
+]
+
+es suprayectiva.
+
+Como (\mathbb N\times\mathbb N) es numerable, existe una biyección
+
+[
+\varphi:\mathbb N\to \mathbb N\times\mathbb N.
+]
+
+Entonces la composición
+
+[
+T\circ \varphi:\mathbb N\to S
+]
+
+es suprayectiva.
+
+Por tanto,
+
+[
+S
+]
+
+es imagen de un conjunto numerable. Luego (S) es numerable.
+
+[
+\boxed{
+\bigcup_{n=1}^{\infty}E_n
+\text{ es numerable}.
+}
+]
+
+---
+
+Si se desea verlo mediante una tabla, se tiene:
+
+[
+\begin{array}{ccccc}
+x_{11} & x_{12} & x_{13} & x_{14} & \cdots \
+x_{21} & x_{22} & x_{23} & x_{24} & \cdots \
+x_{31} & x_{32} & x_{33} & x_{34} & \cdots \
+x_{41} & x_{42} & x_{43} & x_{44} & \cdots \
+\vdots & \vdots & \vdots & \vdots & \ddots
+\end{array}
+]
+
+La unión
+
+[
+\bigcup_{n=1}^{\infty}E_n
+]
+
+queda contenida en los elementos que aparecen en esta tabla. Como los elementos de la tabla se pueden recorrer diagonalmente, dicha unión es numerable.
+
+[
+\boxed{
+\text{La unión numerable de numerables es numerable.}
+}
+]
