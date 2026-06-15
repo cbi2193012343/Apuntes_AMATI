@@ -1,0 +1,226 @@
+\[
+\text{Ejemplo:}
+\]
+
+\[
+\text{Sean } a,b\in \mathbb{R},
+\qquad
+a<b.
+\]
+
+\[
+C[a,b]=
+\left\{
+f:[a,b]\to \mathbb{R}
+\mid
+f \text{ es continua}
+\right\}.
+\]
+
+\[
+\text{Sea } d:C[a,b]\times C[a,b]\to [0,\infty).
+\]
+
+\[
+f,g\in C[a,b]
+\]
+
+\[
+d(f,g)=\sup\left\{
+|f(x)-g(x)|\mid x\in [a,b]
+\right\}.
+\]
+
+\[
+\text{Afirmación: } d \text{ es métrica en } C[a,b].
+\]
+
+\[
+\text{Dem: } \quad
+\text{1) Positividad.}
+\]
+
+\[
+\text{Si } f,g\in C[a,b],\ f\neq g,
+\text{ entonces } d(f,g)>0.
+\]
+
+\[
+\text{Si } f=g,\text{ entonces } d(f,f)=0.
+\]
+
+\[
+\text{2) Simetría.}
+\]
+
+\[
+d(f,g)=d(g,f),
+\qquad
+\forall f,g\in C[a,b].
+\]
+
+\[
+\text{3) Desigualdad del triángulo.}
+\]
+
+\[
+\text{Si } f,g,h\in C[a,b],
+\]
+
+\[
+d(f,g)\leq d(f,h)+d(h,g).
+\]
+
+\[
+\text{1) Si } f,g\in C[a,b],\ f\neq g.
+\]
+
+\[
+\therefore \ \exists x_0\in [a,b]
+\quad \text{t.q.} \quad
+f(x_0)\neq g(x_0).
+\]
+
+\[
+\text{Como } f,g \text{ son continuas, existe un intervalo } U
+\]
+
+\[
+\text{en } [a,b] \text{ tal que}
+\]
+
+\[
+x_0\in U
+\quad \text{y} \quad
+f(x)\neq g(x),\ \forall x\in U.
+\]
+
+\[
+\therefore \quad
+d(f,g)
+=
+\sup\left\{
+|f(x)-g(x)|\mid x\in [a,b]
+\right\}
+\]
+
+\[
+\geq
+\sup\left\{
+|f(x)-g(x)|\mid x\in U
+\right\}
+\]
+
+\[
+\geq |f(x_0)-g(x_0)|>0.
+\]
+
+\[
+\text{Si } f=g,\text{ entonces}
+\]
+
+\[
+d(f,g)=d(f,f)
+=
+\sup\left\{
+|f(x)-g(x)|:x\in [a,b]
+\right\}
+\]
+
+\[
+=
+\sup\{0\}=0.
+\]
+
+\[
+\therefore \quad d(f,f)=0.
+\]
+
+\[
+\text{2) } \quad
+|f(x)-g(x)|=|g(x)-f(x)|,
+\qquad
+\forall x\in [a,b].
+\]
+
+\[
+\therefore \quad d(f,g)=d(g,f).
+\]
+
+\[
+\text{3) Observemos que, por la desigualdad del triángulo para } \mathbb{R},
+\]
+
+\[
+|f(x)-g(x)|
+\leq
+|f(x)-h(x)|+|h(x)-g(x)|,
+\qquad
+\forall x\in [a,b].
+\]
+
+\[
+\therefore \quad
+\text{Tomando supremo sobre } x\in [a,b],
+\]
+
+\[
+d(f,g)
+\leq
+\sup\left\{
+|f(x)-h(x)|+|h(x)-g(x)|:x\in [a,b]
+\right\}
+\]
+
+\[
+\leq
+\sup\left\{
+|f(x)-h(x)|:x\in [a,b]
+\right\}
++
+\sup\left\{
+|h(x)-g(x)|:x\in [a,b]
+\right\}
+\]
+
+\[
+=
+d(f,h)+d(h,g).
+\]
+
+\[
+\text{Demostremos que } d(f,h)+d(h,g)
+\text{ es una cota superior del conjunto}
+\]
+
+\[
+\left\{
+|f(x)-h(x)|+|h(x)-g(x)|
+\mid x\in [a,b]
+\right\}.
+\]
+
+\[
+\text{Sea } x\in [a,b]. \text{ Consideremos,}
+\]
+
+\[
+|f(x)-h(x)|+|h(x)-g(x)|
+\leq
+d(f,h)+d(h,g).
+\]
+
+\[
+\therefore
+\sup\left\{
+|f(x)-h(x)|+|h(x)-g(x)|
+\mid x\in [a,b]
+\right\}
+\leq
+d(f,h)+d(h,g).
+\]
+
+\[
+\therefore \quad
+d(f,g)\leq d(f,h)+d(h,g).
+\]

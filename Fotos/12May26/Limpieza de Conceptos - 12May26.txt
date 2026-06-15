@@ -1,0 +1,592 @@
+[
+\underline{\text{Ejemplo.}}
+]
+
+Sean (a,b\in\mathbb{R}) tales que (a<b). Consideremos el conjunto
+
+[
+C[a,b]
+======
+
+\left{
+f:[a,b]\to\mathbb{R}:\ f \text{ es continua}
+\right}.
+]
+
+Para (f,g\in C[a,b]), definimos
+
+[
+d(f,g)
+======
+
+\sup_{x\in [a,b]}
+|f(x)-g(x)|.
+]
+
+Esta función está bien definida. En efecto, si (f,g\in C[a,b]), entonces (f-g) es continua en ([a,b]), y por tanto la función
+
+[
+x\longmapsto |f(x)-g(x)|
+]
+
+también es continua en ([a,b]). Como ([a,b]) es compacto, dicha función es acotada y alcanza su máximo. En consecuencia,
+
+[
+d(f,g)
+======
+
+\max_{x\in [a,b]} |f(x)-g(x)|
+<\infty.
+]
+
+Por tanto,
+
+[
+d(f,g)\in [0,\infty).
+]
+
+[
+\underline{\text{Afirmación.}}
+]
+
+La función
+
+[
+d:C\times C[a,b]\to [0,\infty)
+]
+
+es una métrica en (C[a,b]). A esta métrica se le llama la \textbf{métrica uniforme} o \textbf{métrica del supremo}.
+
+[
+\underline{\text{Demostración.}}
+]
+
+Sean (f,g,h\in C[a,b]).
+
+Primero probemos la positividad. Para todo (x\in [a,b]), se tiene
+
+[
+|f(x)-g(x)|\geq 0.
+]
+
+Por tanto,
+
+[
+d(f,g)
+======
+
+\sup_{x\in [a,b]} |f(x)-g(x)|
+\geq 0.
+]
+
+Ahora probemos la separación de puntos. Si (f=g), entonces (f(x)=g(x)) para todo (x\in [a,b]). Luego,
+
+[
+|f(x)-g(x)|=0
+\qquad \forall x\in [a,b],
+]
+
+y por consiguiente
+
+[
+d(f,g)=0.
+]
+
+Recíprocamente, supongamos que
+
+[
+d(f,g)=0.
+]
+
+Como (d(f,g)) es una cota superior del conjunto
+
+[
+\left{|f(x)-g(x)|:\ x\in [a,b]\right},
+]
+
+se tiene, para todo (x\in [a,b]), que
+
+[
+0\leq |f(x)-g(x)|\leq d(f,g)=0.
+]
+
+Así,
+
+[
+|f(x)-g(x)|=0
+\qquad \forall x\in [a,b].
+]
+
+Por lo tanto,
+
+[
+f(x)=g(x)
+\qquad \forall x\in [a,b],
+]
+
+es decir,
+
+[
+f=g.
+]
+
+Concluimos que
+
+[
+d(f,g)=0
+\iff
+f=g.
+]
+
+Probemos ahora la simetría. Para todo (x\in [a,b]),
+
+[
+|f(x)-g(x)|
+===========
+
+|g(x)-f(x)|.
+]
+
+Luego,
+
+[
+d(f,g)
+======
+
+# \sup_{x\in [a,b]}|f(x)-g(x)|
+
+# \sup_{x\in [a,b]}|g(x)-f(x)|
+
+d(g,f).
+]
+
+Finalmente, probemos la desigualdad triangular. Para todo (x\in [a,b]),
+
+[
+|f(x)-g(x)|
+===========
+
+|f(x)-h(x)+h(x)-g(x)|.
+]
+
+Por la desigualdad triangular en (\mathbb{R}),
+
+[
+|f(x)-g(x)|
+\leq
+|f(x)-h(x)|+|h(x)-g(x)|.
+]
+
+Además,
+
+[
+|f(x)-h(x)|\leq d(f,h),
+\qquad
+|h(x)-g(x)|\leq d(h,g).
+]
+
+Por tanto,
+
+[
+|f(x)-g(x)|
+\leq
+d(f,h)+d(h,g)
+\qquad \forall x\in [a,b].
+]
+
+Como (d(f,h)+d(h,g)) es una cota superior de
+
+[
+\left{|f(x)-g(x)|:\ x\in [a,b]\right},
+]
+
+se sigue que
+
+[
+d(f,g)
+======
+
+\sup_{x\in [a,b]} |f(x)-g(x)|
+\leq
+d(f,h)+d(h,g).
+]
+
+Así, (d) satisface positividad, separación de puntos, simetría y desigualdad triangular. En consecuencia,
+
+[
+\boxed{(C[a,b],d)\text{ es un espacio métrico}.}
+]
+
+
+[
+\underline{\text{Ejercicio.}}
+]
+
+Encontrar un ejemplo en donde la desigualdad señalada con ((?)) sea estricta.
+
+[
+\underline{\text{Construcción general.}}
+]
+
+Sea (A\neq\varnothing) un conjunto y sea ((X,d)) un espacio métrico. Definimos
+
+[
+\mathcal{F}(A,X)
+================
+
+\left{
+f:A\to X:\ f \text{ es acotada}
+\right}.
+]
+
+Diremos que (f:A\to X) es acotada si existe (q\in X) tal que la función
+
+[
+\gamma:A\to\mathbb{R},
+\qquad
+\gamma(a)=d(f(a),q),
+]
+
+es acotada. Equivalentemente, existe (M\geq 0) tal que
+
+[
+d(f(a),q)\leq M
+\qquad \forall a\in A.
+]
+
+Para (f,g\in\mathcal{F}(A,X)), definimos
+
+[
+D(f,g)
+======
+
+\sup_{a\in A} d(f(a),g(a)).
+]
+
+Primero verifiquemos que (D) está bien definida. Como (f) y (g) son acotadas, existen (p,q\in X) y constantes (M,N\geq 0) tales que
+
+[
+d(f(a),p)\leq M,
+\qquad
+d(g(a),q)\leq N
+\qquad \forall a\in A.
+]
+
+Por la desigualdad triangular en (X), para todo (a\in A),
+
+[
+d(f(a),g(a))
+\leq
+d(f(a),p)+d(p,q)+d(q,g(a)).
+]
+
+Luego,
+
+[
+d(f(a),g(a))
+\leq
+M+d(p,q)+N
+\qquad \forall a\in A.
+]
+
+Por tanto, el conjunto
+
+[
+\left{
+d(f(a),g(a)):\ a\in A
+\right}
+]
+
+es acotado superiormente. Como además (A\neq\varnothing), dicho conjunto es no vacío. Así, su supremo existe y es finito. En consecuencia,
+
+[
+D(f,g)\in [0,\infty).
+]
+
+[
+\underline{\text{Afirmación.}}
+]
+
+La función
+
+[
+D:\mathcal{F}(A,X)\times \mathcal{F}(A,X)\to [0,\infty)
+]
+
+es una métrica en (\mathcal{F}(A,X)).
+
+[
+\underline{\text{Demostración.}}
+]
+
+Sean (f,g,h\in\mathcal{F}(A,X)).
+
+Primero, para todo (a\in A),
+
+[
+d(f(a),g(a))\geq 0.
+]
+
+Por tanto,
+
+[
+D(f,g)
+======
+
+\sup_{a\in A} d(f(a),g(a))
+\geq 0.
+]
+
+Ahora probemos la separación de puntos. Si (f=g), entonces (f(a)=g(a)) para todo (a\in A). Luego,
+
+[
+d(f(a),g(a))=0
+\qquad \forall a\in A.
+]
+
+Por tanto,
+
+[
+D(f,g)=0.
+]
+
+Recíprocamente, supongamos que
+
+[
+D(f,g)=0.
+]
+
+Entonces, para todo (a\in A),
+
+[
+0\leq d(f(a),g(a))\leq D(f,g)=0.
+]
+
+Así,
+
+[
+d(f(a),g(a))=0
+\qquad \forall a\in A.
+]
+
+Como (d) es métrica en (X), se sigue que
+
+[
+f(a)=g(a)
+\qquad \forall a\in A.
+]
+
+Por lo tanto,
+
+[
+f=g.
+]
+
+Concluimos que
+
+[
+D(f,g)=0
+\iff
+f=g.
+]
+
+Probemos la simetría. Para todo (a\in A),
+
+[
+d(f(a),g(a))
+============
+
+d(g(a),f(a)).
+]
+
+Luego,
+
+[
+D(f,g)
+======
+
+# \sup_{a\in A} d(f(a),g(a))
+
+# \sup_{a\in A} d(g(a),f(a))
+
+D(g,f).
+]
+
+Finalmente, probemos la desigualdad triangular. Para todo (a\in A), por la desigualdad triangular en ((X,d)), se tiene
+
+[
+d(f(a),g(a))
+\leq
+d(f(a),h(a))+d(h(a),g(a)).
+]
+
+Además,
+
+[
+d(f(a),h(a))\leq D(f,h),
+\qquad
+d(h(a),g(a))\leq D(h,g).
+]
+
+Entonces
+
+[
+d(f(a),g(a))
+\leq
+D(f,h)+D(h,g)
+\qquad \forall a\in A.
+]
+
+Así, (D(f,h)+D(h,g)) es una cota superior del conjunto
+
+[
+\left{
+d(f(a),g(a)):\ a\in A
+\right}.
+]
+
+Por definición de supremo,
+
+[
+D(f,g)
+======
+
+\sup_{a\in A} d(f(a),g(a))
+\leq
+D(f,h)+D(h,g).
+]
+
+Por tanto, (D) satisface positividad, separación de puntos, simetría y desigualdad triangular. En consecuencia,
+
+[
+\boxed{
+\left(\mathcal{F}(A,X),D\right)
+\text{ es un espacio métrico.}
+}
+]
+
+[
+\underline{\text{Ejemplo donde la desigualdad } (?) \text{ es estricta.}}
+]
+
+Tomemos
+
+[
+A={1,2},
+\qquad
+X=\mathbb{R},
+\qquad
+d(x,y)=|x-y|.
+]
+
+Definimos (f,g,h:A\to\mathbb{R}) por
+
+[
+f(1)=1,\qquad f(2)=0,
+]
+
+[
+g(1)=0,\qquad g(2)=1,
+]
+
+y
+
+[
+h(1)=0,\qquad h(2)=0.
+]
+
+Como (A) es finito, las funciones (f,g,h) son acotadas. Calculemos:
+
+[
+D(f,g)
+======
+
+# \sup_{a\in A}|f(a)-g(a)|
+
+\max{|f(1)-g(1)|,\ |f(2)-g(2)|}.
+]
+
+Entonces
+
+[
+D(f,g)
+======
+
+# \max{|1-0|,\ |0-1|}
+
+# \max{1,1}
+
+1.
+
+]
+
+Por otro lado,
+
+[
+D(f,h)
+======
+
+# \sup_{a\in A}|f(a)-h(a)|
+
+# \max{|1-0|,\ |0-0|}
+
+1,
+]
+
+y
+
+[
+D(h,g)
+======
+
+# \sup_{a\in A}|h(a)-g(a)|
+
+# \max{|0-0|,\ |0-1|}
+
+1.
+
+]
+
+Por tanto,
+
+[
+D(f,h)+D(h,g)=1+1=2.
+]
+
+Así,
+
+[
+D(f,g)
+======
+
+1
+<
+2
+=
+
+D(f,h)+D(h,g).
+]
+
+Es decir,
+
+[
+\boxed{
+D(f,g)<D(f,h)+D(h,g).
+}
+]
+
+Por lo tanto, la desigualdad señalada con ((?)) puede ser estricta.
+
+El fenómeno ocurre porque
+
+[
+\sup_{a\in A}|f(a)-h(a)|
+]
+
+se alcanza en (a=1), mientras que
+
+[
+\sup_{a\in A}|h(a)-g(a)|
+]
+
+se alcanza en (a=2). Por eso, al sumar los supremos se obtiene un valor mayor que el supremo de la suma punto a punto.
